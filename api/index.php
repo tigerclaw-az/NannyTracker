@@ -13,6 +13,14 @@ require_once APP_LIB_PATH . '/Slim/Extras/Log/DateTimeFileWriter.php';
 
 require_once('config.php');
 
+require_once APP_LIB_PATH . '/medoo.php';
+$nannyDB = new medoo(array(
+	'database_name' => DB_NAME,
+	'server' => DB_HOST,
+	'username' => DB_USER,
+	'password' => base64_decode(DB_PASS)
+));
+
 date_default_timezone_set('America/Phoenix');
 \Slim\Slim::registerAutoloader();
 
@@ -43,12 +51,15 @@ $app->configureMode('development', function () use ($app) {
 });
 
 // Library includes
-include_once APP_LIB_PATH . '/AuthenticationHeader.php';
 include_once APP_LIB_PATH . '/Utils.php';
 
 // Route definitions
-require_once APP_ROUTE_PATH . '/parents.php';
+require_once APP_ROUTE_PATH . '/authentication.php';
 
 $app->response->headers->set('Access-Control-Allow-Origin', '*');
 $app->response->headers->set('Content-Type', 'application/json');
 $app->run();
+
+if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+	ReportError(new Exception('Invalid credentials. Must login first.'), 401);
+}
