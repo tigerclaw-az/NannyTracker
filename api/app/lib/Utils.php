@@ -51,6 +51,32 @@ function ConvertDBTableName($name)
 	return ucwords(str_replace('_', ' ', $name));
 }
 
+/**
+ * Replace certain characters that will break the SOAP XML
+ * request.
+ * NOTE: DO NOT use htmlentities() here because the Web Services
+ *       can only handle certain characters.
+ * @param String $strValue The string with special characters
+ */
+function EscapeHtml($strValue)
+{
+	// \xe2\x80\x93 => &ndash; character
+	$search  = array('&', '<', '>', '"', "'", "\x0A", "\x0D", "\xe2\x80\x93");
+	$replace = array('&amp;', '&lt;', '&gt;', '&quot;', '&apos;', '&#10;', '&#13;', '-');
+
+	return str_replace($search, $replace, $strValue);
+}
+
+/**
+ * Replaces all htmlentities that come from the Web Service
+ * @param String $strValue String to be decoded
+ */
+function UnescapeHtml($strValue)
+{
+	// Need to manually replace &apos; since PHP doesn't do it automatically
+	return html_entity_decode(str_replace('&apos;', "'", $strValue), ENT_QUOTES, 'UTF-8');
+}
+
 /******************
  * Date/Time Functions
  ******************/
@@ -85,11 +111,10 @@ function DateToTime($date)
  * @param string $strMessage [description]
  * @param integer $errorCode [description]
  */
-function ReportError(Exception $e, $strMessage = null, $errorCode = 500)
+function ReportError(Exception $e, $errorCode = 500)
 {
-	$errorCode = UpdateErrorType($e, $errorCode);
-	$msg = "$strMessage";
-	$msg .= $e->getMessage();
+	$errorCode = response_code($errorCode);
+	$msg = $e->getMessage();
 	if (!$msg) $msg = get_response_text($errorCode);
 	LogError($e, $msg);
 
