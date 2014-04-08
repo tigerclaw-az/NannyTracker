@@ -1,18 +1,10 @@
 <?php
 
-include_once APP_LIB_PATH . '/AuthenticationHeader.php';
-
-$app->post('/login', function ()
+$app->post('/login', function () use ($nannyDB)
 {
 	session_start();
 
-	try {
-
-	} catch (Exception $e){
-		ReportError($e, 'Failed to create Authentication service.');
-	}
-
-	$data = GetData();
+	$data = GetHTTPData();
 
 	if (empty($data->username)) {
 		ReportError(new Exception('Missing required "username" property.'), null, 400);
@@ -20,21 +12,21 @@ $app->post('/login', function ()
 		ReportError(new Exception('Missing required "password" property.'), null, 400);
 	}
 
-	$data->username = EscapeSoapString($data->username);
-	$data->password = EscapeSoapString($data->password);
+	$data->username = EscapeHtml($data->username);
+	$data->password = EscapeHtml($data->password);
 
 	try {
-		$result = $client->Login($data);
+		$result = $auth->Login($data);
 		$appResponse = new AppResponse($result);
 
-		if ($result->StatusCode == "LOGINOK") {
+		if ($result) {
 			$_SESSION['realUsername'] = $data->username;
-			$_SESSION['username'] = UnescapeString($result->TempCredentials->username);
-			$_SESSION['password'] = UnescapeString($result->TempCredentials->password);
+			$_SESSION['username'] = UnescapeHtml($result->username);
+			$_SESSION['password'] = UnescapeHtml($result->password);
 			$appResponse->data = [$result->TempCredentials];
 			$appResponse->SetStatus(200);
 		} else {
-			ReportError(new \Exception("$result->StatusCode"), null, 401);
+			ReportError(new \Exception("Invalid login credentials"), null, 401);
 		}
 	   echo json_encode($appResponse);
 	} catch (Exception $e) {
@@ -54,10 +46,7 @@ $app->get('/logout', function ()
 	}
 
 	if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
-		$CredentialsType = new CredentialsType();
-		$CredentialsType->Username = $_SESSION['username'];
-		$CredentialsType->Password = $_SESSION['password'];
-		$result = $client->Logout($CredentialsType);
+		$result = $auth->Logout();
 		$appResponse = NewSuccessAppResponse($result);
 		$appResponse->data = [];
 		if ($result == "LOGOUTCOMPLETE") {
