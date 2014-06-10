@@ -22,6 +22,10 @@ requirejs.config({
 });
 
 require(['route/home'], function() {
+	Path.rescue(function() {
+		// TODO - Redirect to 404 page
+	});
+
 	Path.root("#!/home");
 
 	Path.listen();
