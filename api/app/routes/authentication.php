@@ -16,7 +16,7 @@ $app->post('/login', function () use ($nannyDB)
 	$data->password = EscapeHtml($data->password);
 
 	try {
-		$result = $auth->Login($data);
+		$result = $pppoauth->Login($data);
 		$appResponse = new AppResponse($result);
 
 		if ($result) {
