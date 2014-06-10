@@ -2,7 +2,13 @@ require.config({
 	baseUrl: 'js/lib',
 	paths: {
 		app: '../app',
-		json: 'requirejs-plugins/json',
-		text: 'requirejs-plugins/text'
+		route: '../routes',
+		tpl: '../templates'
 	}
+});
+
+require(['route/home'], function() {
+	Path.root("#!/home");
+
+	Path.listen();
 });
