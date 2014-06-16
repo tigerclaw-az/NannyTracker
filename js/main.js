@@ -6,7 +6,7 @@ requirejs.config({
 		app: '../app',
 		model: '../app/models',
 		route: '../app/routes',
-		template: '../../templates',
+		template: '../app/templates',
 		widget: '../app/widgets',
 		worker: '../app/workers',
 		root: '../..',
