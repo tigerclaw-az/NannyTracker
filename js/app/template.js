@@ -54,4 +54,4 @@ define(['hogan'], function(Hogan) {
 	};
 
 	return Template;
-})
+});
