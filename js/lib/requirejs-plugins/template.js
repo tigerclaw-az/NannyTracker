@@ -10,7 +10,7 @@
   define, window, process, Packages,
   java, location, Components, FileUtils */
 
-define(['module', 'app/core'], function (module, enl) {
+define(['module', 'app/template'], function (module, Template) {
     'use strict';
 
     var text, fs, Cc, Ci, xpcIsWindows,
@@ -191,7 +191,7 @@ define(['module', 'app/core'], function (module, enl) {
             //Load the text. Use XHR if possible and in a browser.
             if (!hasLocation || useXhr(url, defaultProtocol, defaultHostName, defaultPort)) {
                 text.get(url, function (content) {
-                    text.finishLoad(name, parsed.strip, new enl.Template(content), onLoad);
+                    text.finishLoad(name, parsed.strip, new Template(content), onLoad);
                 }, function (err) {
                     if (onLoad.error) {
                         onLoad.error(err);
