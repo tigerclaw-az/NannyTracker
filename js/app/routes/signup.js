@@ -6,5 +6,6 @@ define([], function() {
 		});
 	}).exit(function() {
 		// Exit from route
+		$('#main').off().empty();
 	});
 });
