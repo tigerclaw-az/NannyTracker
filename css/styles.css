@@ -47,6 +47,13 @@ header .green-bar{
 }
 /*end header styles */
 .main-content { background-color: white; }
+.sizeText {
+	font-size:21px;	
+}
+.moreBtn {
+	color:#09f;
+	text-decoration:none;	
+}
 /*footer styles */
 footer{
 	background: #b9d76a;
