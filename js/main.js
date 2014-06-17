@@ -21,7 +21,7 @@ requirejs.config({
 	}
 });
 
-require(['route/home', 'route/nanny'], function() {
+require(['route/home', 'route/nanny', 'route/signup'], function() {
 	Path.rescue(function() {
 		// TODO - Redirect to 404 page
 	});
