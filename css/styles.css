@@ -46,6 +46,7 @@ header .green-bar{
 	height: 20px;
 }
 /*end header styles */
+.main-content { background-color: white; }
 /*footer styles */
 footer{
 	background: #b9d76a;
