@@ -1,3 +1,71 @@
 body {
-	background: #333 url(../img/background.gif) repeat;	
+	background: #333 url(../img/background.gif) repeat;
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 }
+
+/*header styles */
+header{
+	background: #99ca3c;
+	background: -moz-linear-gradient(top,  #99ca3c 0%, #b9d76a 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#99ca3c), color-stop(100%,#b9d76a));
+	background: -webkit-linear-gradient(top,  #99ca3c 0%,#b9d76a 100%);
+	background: -o-linear-gradient(top,  #99ca3c 0%,#b9d76a 100%);
+	background: -ms-linear-gradient(top,  #99ca3c 0%,#b9d76a 100%);
+	background: linear-gradient(to bottom,  #99ca3c 0%,#b9d76a 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ca3c', endColorstr='#b9d76a',GradientType=0 );
+}
+.logo-cont{
+	position: relative;
+}
+header img{
+	left: 25px;
+	margin-top: 11px;
+	position: absolute;
+	z-index: 1000;
+}
+nav li a{
+	display: inline;
+	padding-top: 45px !important;
+	padding-bottom: 10px !important;
+	color: #fff;
+	font-size: 23px
+}
+nav li a:hover {
+	background: #8bc53f !important;
+	color: #fff;
+}
+nav .seperator{
+	display: inline;
+	width: 2px;
+	height: 75px;
+	background-color: #8dc63f;
+	position: absolute;
+}
+header .green-bar{
+	background-color: #8dc63f;
+	height: 20px;
+}
+/*end header styles */
+/*footer styles */
+footer{
+	background: #b9d76a;
+	background: -moz-linear-gradient(top,  #b9d76a 0%, #99ca3c 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b9d76a), color-stop(100%,#99ca3c));
+	background: -webkit-linear-gradient(top,  #b9d76a 0%,#99ca3c 100%);
+	background: -o-linear-gradient(top,  #b9d76a 0%,#99ca3c 100%);
+	background: -ms-linear-gradient(top,  #b9d76a 0%,#99ca3c 100%);
+	background: linear-gradient(to bottom,  #b9d76a 0%,#99ca3c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9d76a', endColorstr='#99ca3c',GradientType=0 );
+	color: #fff;
+	padding: 15px;
+}
+footer p{
+	margin: 0!important;
+}
+footer p a{
+	color: #fff;
+}
+footer p a:hover{
+	color: #fff;
+}
+/*end footer styles */
