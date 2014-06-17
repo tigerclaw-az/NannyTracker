@@ -1,7 +1,7 @@
 define([], function() {
-	Path.map("#!/home").to(function(){
+	Path.map("#!/faq").to(function(){
 	}).enter(function() {
-		require(['tpl!template/home.html'], function(tpl) {
+		require(['tpl!template/faq.html'], function(tpl) {
 			$('#main').append($(tpl.apply()));
 		});
 	}).exit(function() {
