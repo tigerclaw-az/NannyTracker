@@ -1,0 +1,81 @@
+body {
+	height:100%;	
+}
+.form-control {
+	width:100% !important;	
+}
+.form-group {
+	width:380px;
+	margin:12px;
+}
+.city-town {
+	width:257px;	
+}
+.state {
+	width:95px;	
+}
+.personalInfo {
+	width:244px;	
+}
+.signUp {
+	width:200px;
+}
+.couple {
+	position:relative;
+	bottom:0px;
+	left:250px;	
+}
+.margTop {
+	margin-top:30px;	
+}
+.media-body {
+	padding-left:20px!important;	
+}
+@media screen and (max-width:865px){
+	.city-town {
+		width:380px;	
+	}
+	.state {
+		width:380px;	
+	}	
+	.signUp {
+		width:380px;
+	}
+	.couple {
+		display:none;	
+	}
+	td {
+		padding-top:0 !important;
+	}
+}
+@media screen and (max-width:430px){
+	.city-town {
+		width:350px;	
+	}
+	.state {
+		width:350px;	
+	}	
+	.signUp {
+		width:350px;
+	}
+	.form-group {
+		width:350px;
+		margin:12px;
+	}
+}
+@media screen and (max-width:430px){
+	.city-town {
+		width:320px;	
+	}
+	.state {
+		width:320px;	
+	}	
+	.signUp {
+		width:320px;
+	}
+	.form-group {
+		width:320px;
+		margin:12px;
+	}
+}
+
