@@ -1,6 +1,3 @@
-body {
-	height:100%;	
-}
 .form-control {
 	width:100% !important;	
 }
@@ -25,12 +22,7 @@ body {
 	bottom:0px;
 	left:250px;	
 }
-.margTop {
-	margin-top:30px;	
-}
-.media-body {
-	padding-left:20px!important;	
-}
+
 @media screen and (max-width:865px){
 	.city-town {
 		width:380px;	
