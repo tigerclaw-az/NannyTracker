@@ -7,3 +7,30 @@
 .marketing {
 	padding: 20px;
 }
+.login{
+	position: absolute;
+	z-index: 1000;
+	right: 0px;
+	top: 0px;
+}
+.inner-login{
+	padding: 5px 10px;
+	margin: 0px 10px 0px 0px;
+	background-color: #8dc63f;
+	width: 125px;
+	height: 30px;
+	-webkit-border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+.login a, p{
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+}
+.login p{
+	margin: 0px 5px 0px 5px;
+}
