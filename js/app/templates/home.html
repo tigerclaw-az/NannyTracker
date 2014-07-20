@@ -1,6 +1,4 @@
-<!-- Carousel
-================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="homeSlider" class="carousel slide" data-ride="carousel">
 	<div class="login">
 		<div class="inner-login">
 			<a href="#!/login">Login</a>
@@ -8,71 +6,44 @@
 			<a href="#!/signup">Sign Up</a>
 		</div>
 	</div>
-	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
-		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#homeSlider" data-slide-to="0" class="active"></li>
+		<li data-target="#homeSlider" data-slide-to="1"></li>
+		<li data-target="#homeSlider" data-slide-to="2"></li>
 	</ol>
+	<div class="container">
+		<div id="caption" class="slider-caption">
+			<h3>Join Now!</h3>
+			<p>The easies way to get started today is to click the Sign Up button on the upper right of you're screen. We look forward to having you as a new member of our ever growing community!</p><br>
+			<a class="btn btn-primary" href="#!/signup">learn more</a>
+		</div>
+	</div>
 	<div class="carousel-inner">
 		<div class="item active">
-			<img src="img/banner-header.jpg" alt="header">
-			<div class="container">
-				<div class="carousel-caption">
-					<!-- Headline Can Go Here -->
-				</div>
-			</div>
+			<img src="img/banner-header-1.jpg">
 		</div>
 		<div class="item">
-			<img src="img/banner-header.jpg" alt="header">
-			<div class="container">
-				<div class="carousel-caption">
-					<!-- Headline Can Go Here -->
-				</div>
-			</div>
+			<img src="img/banner-header-2.jpg">
 		</div>
 		<div class="item">
-			<img src="img/banner-header.jpg" alt="header">
-			<div class="container">
-				<div class="carousel-caption">
-					<!-- Headline Can Go Here -->
-				</div>
-			</div>
+			<img src="img/banner-header-3.jpg">
 		</div>
 	</div>
-	<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-	<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div><!-- /.carousel -->
-
-
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
+	<a class="carousel-control left" href="#homeSlider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+	<a class="carousel-control right" href="#homeSlider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+</div>
 <div class="container marketing">
-
-	<!-- Three columns of text below the carousel -->
 	<div class="row margTop">
-			<div class="col-md-4">
-					<img class="media-object" src="img/happy-parents.jpg" width="100%" height="auto" alt="Happy Parents">
-				</div>
-				<div class="col-md-8">
-					<h2 class="media-heading">About Nanny Tracker</h2>
-							<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. 
-									Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna. Donec sed odio dui. Etiam porta sem 
-									malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. 
-									Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.Donec sed odio dui. Etiam porta s
-									em malesuada magna mollis euismod. </p>
-									<p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
-				</div>
-			
-	</div><!-- /.row -->
-
-
-	<!-- START THE FEATURETTES -->
+		<div class="col-md-4">
+			<img class="media-object" src="img/happy-parents.jpg" width="100%" height="auto" alt="Happy Parents">
+		</div>
+		<div class="col-md-8">
+			<h2 class="media-heading">About Nanny Tracker</h2>
+			<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna. Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.Donec sed odio dui. Etiam porta s em malesuada magna mollis euismod.</p>
+			<p><a class="btn btn-primary" href="#!/about" role="button">View details &raquo;</a></p>
+		</div>	
+	</div>
 	<hr class="featurette-divider">
-
 	<div class="row featurette">
 		<div class="col-md-7">
 			<h2 class="featurette-heading">Reviews From Happy Parents!<br/> <span class="text-muted sizeText">Susan Anderson / Professional 
@@ -84,7 +55,6 @@
 		</div>
 	</div>
 	<hr class="featurette-divider">
-	
 	<div class="row featurette">
 		<div class="col-md-7">
 			<h2 class="featurette-heading">Reviews From Happy Parents!<br/> <span class="text-muted sizeText">Susan Anderson / Professional 
@@ -95,6 +65,4 @@
 			<img class="featurette-image img-responsive" src="img/happy-parents2.jpg" width="374px" height="200px" alt="Happy parents!">
 		</div>
 	</div>
-	<!-- /END THE FEATURETTES -->
-
-</div><!-- /.container -->
+</div>
