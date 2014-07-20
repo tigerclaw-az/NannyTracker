@@ -46,11 +46,14 @@ header .green-bar{
 	height: 20px;
 }
 /*end header styles */
-.main-content { background-color: white; }
-.sizeText {
+.main-content{
+	background-color: white;
+	overflow: hidden;
+}
+.sizeText{
 	font-size:21px;	
 }
-.moreBtn {
+.moreBtn{
 	color:#09f;
 	text-decoration:none;	
 }
