@@ -77,7 +77,7 @@
 .completed{
 	min-height: 400px;
 }
-i{
+.tab-content i{
 	color: #8dc63f;
 }
 h1, h2, h3, h4{
