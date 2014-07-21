@@ -112,3 +112,28 @@
 .second-featurette{
 	margin-top: 50px;
 }
+.bq-start {
+    float: left;
+	height: 110px;
+	margin-top: -60px;
+	padding-top: 5px;
+	margin-bottom: 70px;
+	font-size: 600%;
+	color: #d0d0d0;
+ }
+
+ .bq-end {
+    float: right;
+	height: 80px;
+	margin-top: -95px;
+	padding-top: 45px;
+	font-size: 600%;
+	color: #d0d0d0;
+ }
+ .lead{
+ 	margin-top: 30px !important;
+ 	display: block;
+ }
+ blockquote{
+	border-left: none;
+ }
