@@ -73,3 +73,46 @@ footer p a:hover{
 	color: #fff;
 }
 /*end footer styles */
+
+
+/*faq page css*/
+.bg-color {
+	background-color:#4c515a;
+}
+.grey-text {
+	color:#a5aab2;
+}
+.grey-faq-col {
+	background-color:#e2e2e3;
+	padding-top:35px;
+	text-align:center;
+}
+.pad-top {
+	padding-top:65px;
+}
+.marg-top {
+	margin-top:25px;
+}
+.wrap {
+	margin-top:30px;
+}
+.faq-header {
+	background-color:#d0d4e0;
+	height:45px;
+	padding:10px;
+}
+.faq-body {
+	background-color:#FFF;
+}
+.media-body {
+	margin-top:30px;
+}
+.blue {
+	color:#09f;
+}
+.forum-p {
+	margin:0;
+}
+hr {
+	background-color::#666;
+}
