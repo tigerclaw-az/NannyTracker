@@ -23,7 +23,7 @@ requirejs.config({
 
 require([
 	'route/home', 'route/nanny', 'route/signup',
-	'route/about', 'route/contact', 'route/faq', 'route/login',
+	'route/about', 'route/contact', 'route/faq', 'route/login', 'route/testimonials',
 ], function() {
 	Path.rescue(function() {
 		// TODO - Redirect to 404 page
