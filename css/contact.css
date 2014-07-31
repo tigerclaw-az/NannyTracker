@@ -1,6 +1,7 @@
 .email-message{
- 	min-height: 350px;
+ 	min-height: 230px;
 	max-width: 540px;
+	resize: none;
  }
 @media only screen and (min-width : 320px) {
 	.email-message{
