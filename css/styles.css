@@ -5,6 +5,12 @@ body {
 .fa-6x{
 	font-size: 6em;
 }
+.no-right-padding{
+	padding-right: 0px;
+}
+.no-left-padding{
+	padding-left: 0px;
+}
 /*header styles */
 header{
 	background: #99ca3c;

@@ -1,0 +1,28 @@
+/*parent styles*/
+.green-well{
+	min-height: 180px;
+	margin-bottom: 20px;
+	border: 1px solid #8dc63f;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+.child-img-holder{
+	border-right: 1px solid #8dc63f;
+	min-height: 179px;
+	padding-top: 15px;
+}
+.green-border-bottom{
+	border-bottom: 1px solid #8dc63f;
+	display: flex;
+	min-height: 70px;
+}
+.green-border-bottom h4{
+	margin-top: 25px;
+}
+.task-title{
+	border-right: 1px solid #8dc63f;
+}
+.child-notes{
+	padding: 15px;
+}
