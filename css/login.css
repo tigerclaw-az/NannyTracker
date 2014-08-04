@@ -2,10 +2,18 @@
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
+	border: 1px solid #e3e3e3;
+	-webkit-box-shadow: 0 1px 35px rgba(0,0,0,.15);
+	box-shadow: 0 1px 35px rgba(0,0,0,.15);
 	text-align: center;
-	padding: 20px;
-	margin-top: 100px;
+	margin-top: 90px;
+	margin-bottom: 90px;
 	height: 400px;
+	background-color: #fff;
+}
+.login-cont{
+	padding: 15px;
+	margin: 0 auto;
 }
 .login-logo {
 	margin-bottom: 45px;
@@ -29,4 +37,7 @@
 	width: 15px;
 	height: 15px;
 	float: left;
+}
+.forgot-pass{
+	margin-top: 20px;
 }
