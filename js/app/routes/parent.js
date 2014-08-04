@@ -1,7 +1,7 @@
 define([], function() {
-	Path.map("#!/nanny").to(function(){
+	Path.map("#!/parent").to(function(){
 	}).enter(function() {
-		require(['tpl!template/nanny.html'], function(tpl) {
+		require(['tpl!template/parent.html'], function(tpl) {
 			$('#main').append($(tpl.apply()));
 		});
 	}).exit(function() {
