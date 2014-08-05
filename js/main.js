@@ -27,7 +27,7 @@ require([
 	'route/testimonials', 'route/nanny', 'route/parent',
 ], function() {
 	Path.rescue(function() {
-		// TODO - Redirect to 404 page
+		window.location = '/404.html';
 	});
 
 	Path.root("#!/home");
