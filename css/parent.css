@@ -1,4 +1,7 @@
 /*parent styles*/
+.warning {
+	color: red !important;
+}
 .green-well{
 	min-height: 180px;
 	margin-bottom: 20px;
