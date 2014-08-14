@@ -20,6 +20,12 @@ define([], function() {
 					$('#resetBtn').addClass('hide');
 				}
 			});
+
+			$('form').on('submit', function() {
+				// 1. Check for login or reset password
+				// 2. Perform action accordingly
+				return false;
+			})
 		});
 	}).exit(function() {
 		// Exit from route
