@@ -22,13 +22,13 @@
 	margin-top: 10px;
 }
 .btn-margin {
-	margin-top: 25px;
+	margin-top: 25px !important;
 }
 .input-size {
 	height: 45px;
 	background-color: #f1f1f1;
 }
-.login-btn {
+button {
 	height: 55px;
 	padding-top: 15px;
 }
