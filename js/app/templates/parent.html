@@ -6,85 +6,40 @@
 			</div>
 		</div>
 	</div>
+
+	
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="info">
+				{{#messages}}
 				<div class="message">
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>Child 1 broke arm</p>
+						<p>{{message}}</p>
 					</div>
 					<div class="dotted-line col-lg-8 hidden-md hidden-sm hidden-xs">
 						
 					</div>
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>5 min ago</p>
+						<p>{{time}}</p>
 					</div>
 				</div>
-				<div class="message">
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>Child 1 broke arm</p>
-					</div>
-					<div class="dotted-line col-lg-8 hidden-md hidden-sm hidden-xs">
-						
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>An hour ago</p>
-					</div>
-				</div>
-				<div class="message">
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>Child 1 broke arm</p>
-					</div>
-					<div class="dotted-line col-lg-8 hidden-md hidden-sm hidden-xs">
-						
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>An hour ago</p>
-					</div>
-				</div>
-				<div class="message">
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>Child 1 broke arm</p>
-					</div>
-					<div class="dotted-line col-lg-8 hidden-md hidden-sm hidden-xs">
-						
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>2 hours ago</p>
-					</div>
-				</div>
-				<div class="message">
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>Child 1 broke arm</p>
-					</div>
-					<div class="dotted-line col-lg-8 hidden-md hidden-sm hidden-xs">
-						
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>2 hours ago</p>
-					</div>
-				</div>
-				<div class="message">
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>Child 1 broke arm</p>
-					</div>
-					<div class="dotted-line col-lg-8 hidden-md hidden-sm hidden-xs">
-						
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-						<p>2 hours ago</p>
-					</div>
-				</div>
+				{{/messages}}
+				{{^messages}}
+					<p>No messages</p>
+				{{/messages}}
 			</div>
 		</div>
-	</div>				
+	</div>	
+	
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="text-left">
 				<h4><i class="fa fa-check-circle fa-2x"></i>Completed Actions</h4>
 			</div>
 		</div>
-	</div>				
+	</div>
+
+	{{#completedActions}}			
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="green-well">
@@ -94,61 +49,19 @@
 				<div class="no-left-padding no-right-padding col-lg-10 col-md-10 col-sm-10 col-xs-10">
 					<div class="green-border-bottom">
 						<div class="task-title col-lg-3 col-md-3 col-sm-3 col-xs-3">
-							<h4>Nap</h4>
+							<h4>{{action}}</h4>
 						</div>
 						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-							<h4>11:00 --------> 12:44</h4>
+							<h4>{{startTime}} --------> {{endTime}}</h4>
 						</div>
 					</div>
 					<div class="child-notes">
-						ibaeufbiueb
+						{{notes}}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<div class="green-well">
-				<div class="child-img-holder col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<img class="img-responsive img-circle testimonial-img" src="img/mom.jpg">
-				</div>
-				<div class="no-left-padding no-right-padding col-lg-10 col-md-10 col-sm-10 col-xs-10">
-					<div class="green-border-bottom">
-						<div class="task-title col-lg-3 col-md-3 col-sm-3 col-xs-3">
-							<h4>Nap</h4>
-						</div>
-						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-							<h4>11:00 --------> 12:44</h4>
-						</div>
-					</div>
-					<div class="child-notes">
-						ibaeufbiueb
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<div class="green-well">
-				<div class="child-img-holder col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<img class="img-responsive img-circle testimonial-img" src="img/mom.jpg">
-				</div>
-				<div class="no-left-padding no-right-padding col-lg-10 col-md-10 col-sm-10 col-xs-10">
-					<div class="green-border-bottom">
-						<div class="task-title col-lg-3 col-md-3 col-sm-3 col-xs-3">
-							<h4>Nap</h4>
-						</div>
-						<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-							<h4>11:00 --------> 12:44</h4>
-						</div>
-					</div>
-					<div class="child-notes">
-						ibaeufbiueb
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	{{/completedActions}}
+	
 </section>
