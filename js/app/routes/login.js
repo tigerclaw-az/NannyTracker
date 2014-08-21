@@ -1,27 +1,26 @@
 define([], function() {
 	Path.map("#!/login").to(function(){
 	}).enter(function() {
-		require(['tpl!template/login.html'], function(tpl) {
+		require(['tpl!template/login.html'], function(tpl){
 			$('#main').append($(tpl.apply()));
 
 			$('header').hide();
 			$('#main').addClass('transparent-background');
 			$('footer').hide();
 
-			$('#signupCheck').on('click', function() {
-				if ($(this).is(':checked')) {
-					$('#pass').hide();
-					$()
+			$('#signupCheck').on('click', function(){
+				if ($(this).is(':checked')){
+					$('#pass').fadeOut();
 					$('#loginBtn').addClass('hide');
 					$('#resetBtn').removeClass('hide');
-				} else {
-					$('#pass').show();
+				}else{
+					$('#pass').fadeIn();
 					$('#loginBtn').removeClass('hide');
 					$('#resetBtn').addClass('hide');
 				}
 			});
 
-			$('form').on('submit', function() {
+			$('form').on('submit', function(){
 				// 1. Check for login or reset password
 				// 2. Perform action accordingly
 				return false;
