@@ -10,11 +10,11 @@ define([], function() {
 
 			$('#signupCheck').on('click', function(){
 				if ($(this).is(':checked')){
-					$('#pass').fadeOut();
+					$('#pass').hide();
 					$('#loginBtn').addClass('hide');
 					$('#resetBtn').removeClass('hide');
 				}else{
-					$('#pass').fadeIn();
+					$('#pass').show();
 					$('#loginBtn').removeClass('hide');
 					$('#resetBtn').addClass('hide');
 				}
