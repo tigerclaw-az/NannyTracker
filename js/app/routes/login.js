@@ -24,7 +24,21 @@ define([], function() {
 				// 1. Check for login or reset password
 				// 2. Perform action accordingly
 				return false;
-			})
+			});
+
+			$('#login').on('submit', function() {
+				$.ajax({
+					url: '/api/index.php/login',
+					dataType: 'json',
+					type: 'POST',
+					data: JSON.stringify({
+						username: $('#email').val(),
+						password: $('#pass').val()
+					})
+				}).always(function() {
+					console.debug(arguments);
+				});
+			});			
 		});
 	}).exit(function() {
 		// Exit from route
