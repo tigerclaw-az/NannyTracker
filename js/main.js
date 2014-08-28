@@ -34,5 +34,3 @@ require([
 
 	Path.listen();
 });
-
-var loggedIn = true;
