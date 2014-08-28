@@ -3,18 +3,19 @@ define([], function() {
 	}).enter(function() {
 		require(['tpl!template/home.html'], function(tpl) {
 			$('#main').append($(tpl.apply()));
-			var loggedIn = false;
-			function showProfileBtn(){
-				console.log('checking ');
-				if(loggedIn){
-					$("#loginPanel").addClass('hidden');
-					$("#userPanel").removeClass('hidden');
-				}else{
-					$("#loginPanel").removeClass('hidden');
-					$("#userPanel").addClass('hidden');
-				}
-			}
+			var loggedIn = false,
+				showProfileBtn = function() {
+					if (loggedIn) {
+						$("#loginPanel").addClass('hidden');
+						$("#userPanel").removeClass('hidden');
+					} else {
+						$("#loginPanel").removeClass('hidden');
+						$("#userPanel").addClass('hidden');
+					}
+				};
+			
 			showProfileBtn();
+
 			$('body').on('slid.bs.carousel', '#homeSlider', function() { 
 				var caption = $("#caption");
 				var heading = "heading";

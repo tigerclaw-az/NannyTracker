@@ -20,13 +20,7 @@ define([], function() {
 				}
 			});
 
-			$('form').on('submit', function(){
-				// 1. Check for login or reset password
-				// 2. Perform action accordingly
-				return false;
-			});
-
-			$('#login').on('submit', function() {
+			$('#login').on('submit', function(e) {
 				$.ajax({
 					url: '/api/index.php/login',
 					dataType: 'json',
@@ -35,10 +29,19 @@ define([], function() {
 						username: $('#email').val(),
 						password: $('#pass').val()
 					})
+				}).done(function() {
+					console.log('PASS');
+				}).fail(function() {
+					console.log('FAIL');
 				}).always(function() {
 					console.debug(arguments);
 				});
-			});			
+
+				console.log("I'm FIRST!");	
+
+				e.preventDefault();
+				// return false;
+			});					
 		});
 	}).exit(function() {
 		// Exit from route
