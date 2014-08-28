@@ -52,7 +52,7 @@ define([], function() {
 
 			$('[data-mark-complete]').on('click', function(e) {
 				var $target = $(e.target);
-				
+
 				// console.debug(e);
 				// 1. Add completed task to "Completed" sidebar with current
 				//    time. (use momentjs)
@@ -63,6 +63,7 @@ define([], function() {
 
 			$('[data-add-notes]').on('click', function(e) {
 				// console.debug(e);
+				// Show textarea when clicked
 			});
 		});
 	}).exit(function() {
