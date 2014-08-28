@@ -13,13 +13,16 @@ require_once APP_LIB_PATH . '/Slim/Extras/Log/DateTimeFileWriter.php';
 
 require_once('config.php');
 
-require_once APP_LIB_PATH . '/medoo.php';
+// require_once APP_LIB_PATH . '/medoo.php';
 // $nannyDB = new medoo(array(
 // 	'database_name' => DB_NAME,
 // 	'server' => DB_HOST,
 // 	'username' => DB_USER,
 // 	'password' => base64_decode(DB_PASS)
 // ));
+
+// TEST //
+$nannyDB = [];
 
 date_default_timezone_set('America/Phoenix');
 \Slim\Slim::registerAutoloader();
@@ -55,7 +58,7 @@ include_once APP_LIB_PATH . '/Utils.php';
 
 // Route definitions
 require_once APP_ROUTE_PATH . '/authentication.php';
-require_once APP_ROUTE_PATH . '/nanny.php';
+// require_once APP_ROUTE_PATH . '/nanny.php';
 
 $app->response->headers->set('Access-Control-Allow-Origin', '*');
 $app->response->headers->set('Content-Type', 'application/json');
