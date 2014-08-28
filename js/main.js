@@ -27,10 +27,14 @@ require([
 	'route/testimonials', 'route/nanny', 'route/parent',
 ], function() {
 	Path.rescue(function() {
-		window.location = '/404.html';
+		// window.location = '/404.html';
 	});
 
 	Path.root("#!/home");
 
 	Path.listen();
+
+	$.ajaxSetup({
+		dataType: 'json'
+	});
 });

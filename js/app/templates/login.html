@@ -2,10 +2,10 @@
 	<div class="row-fluid">
 		<div class="col-lg-6 col-lg-offset-3 login-form">
 			<a href="#!/home"><img class="login-logo" src="img/logo-green.svg" alt="Logo" width="315" height="auto"></a>
-			<form id="login" method="post">
-				<input type="email" class="form-control input-size" id="email" placeholder="Email">
+			<form id="login" method="post" autocomplete="on">
+				<input type="email" class="form-control input-size" id="email" placeholder="Email" autocomplete="on">
 				<input type="password" class="form-control input-margin input-size" id="pass" placeholder="Password">
-				<button id="loginBtn" class="btn btn-primary btn-block btn-lg btn-margin login-btn">Login</button>
+				<button id="loginBtn" class="btn btn-primary btn-block btn-lg btn-margin login-btn"><i class="hidden fa fa-spinner"></i>Login</button>
 				<button id="resetBtn" class="btn btn-primary btn-block btn-lg btn-margin login-btn hide">Reset Password</button>
 			</form>
 			<ul class="list-inline forgot-pass">

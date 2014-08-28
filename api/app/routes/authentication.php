@@ -19,7 +19,8 @@ $app->post('/login', function () use ($nannyDB)
 		// $result = $pppoauth->Login($data);
 		$result = (object) array(
 			'username' => $data->username,
-			'password' => base64_encode(pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3"))
+			'password' => base64_encode(pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3")),
+			'userType' => floor(rand(0, 1)) === 1 ? 'parent' : 'nanny'
 		);
 		$appResponse = new AppResponse($result);
 

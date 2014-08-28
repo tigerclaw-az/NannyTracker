@@ -1,8 +1,10 @@
 define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
-		require(['tpl!template/nanny.html', 'moment'], function(tpl) {
-			$('#main').append($(tpl.apply({
+		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {
+			var $containerCompleted = $('.container-completed');
+
+			$('#main').append($(tplNanny.apply({
 				generalNotes: 'Big blurb of text',
 				messages: [{
 					message: 'Hey!',
@@ -37,15 +39,31 @@ define([], function() {
 						action: 'Dinner'
 					}, {
 						action: 'Bath'
-					}],
-					completedActions: [{
-						action: 'Change Diaper',
-						time: moment().format('lll'),
-						'isNote?': true,
-						note: 'Screamed entire time'
-					}]
+					}]					
 				}]
 			})));
+
+			$containerCompleted.append(tplCT.apply({				
+					action: 'Change Diaper',
+					time: moment().format('lll'),
+					'isNote?': true,
+					note: 'Screamed entire time'
+			}));
+
+			$('[data-mark-complete]').on('click', function(e) {
+				var $target = $(e.target);
+				
+				// console.debug(e);
+				// 1. Add completed task to "Completed" sidebar with current
+				//    time. (use momentjs)
+				$containerCompleted.append(tplCT.apply({
+					// Fill in information from row that was clicked
+				}))
+			});
+
+			$('[data-add-notes]').on('click', function(e) {
+				// console.debug(e);
+			});
 		});
 	}).exit(function() {
 		// Exit from route

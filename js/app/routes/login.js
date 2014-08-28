@@ -21,26 +21,36 @@ define([], function() {
 			});
 
 			$('#login').on('submit', function(e) {
-				$.ajax({
-					url: '/api/index.php/login',
-					dataType: 'json',
-					type: 'POST',
-					data: JSON.stringify({
-						username: $('#email').val(),
-						password: $('#pass').val()
-					})
-				}).done(function() {
-					console.log('PASS');
+				// $('#loginBtn i').removeClass('hidden').addClass('fa-spin');
+
+				var user = $('#email').val(),
+					pass = $('#pass').val(),
+					xhr = $.ajax({
+						url: '/api/index.php/login',
+						type: 'POST',
+						data: JSON.stringify({
+							username: user,
+							password: pass
+						})
+					});
+
+				xhr
+				// .then(function() { /* pass */ }, function() { /* fail */ })
+				.done(function(data) {
+					if (data.userType === 'parent') {
+						window.location.hash = '#!/parent';
+					} else {
+						window.location.hash = '#!/nanny';
+					}
 				}).fail(function() {
-					console.log('FAIL');
-				}).always(function() {
+					
+				})
+				.always(function() {
 					console.debug(arguments);
+					// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
 				});
 
-				console.log("I'm FIRST!");	
-
 				e.preventDefault();
-				// return false;
 			});					
 		});
 	}).exit(function() {
