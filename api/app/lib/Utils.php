@@ -122,8 +122,6 @@ function ReportError(Exception $e, $errorCode = 500)
 	$appResponse->setStatus($errorCode);
 	$appResponse->statusText = $msg;
 
-	header('Access-Control-Allow-Origin: *');
-	header('Content-Type: application/json');
 	die(json_encode($appResponse, JSON_PRETTY_PRINT));
 }
 
@@ -193,7 +191,7 @@ function response_code($code)
 	$text = get_response_text($code);
 	if ($text != null) {
 		$protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
-		header($protocol . ' ' . $code . ' ' . $text);
+		@header($protocol . ' ' . $code . ' ' . $text);
 	}
 
 	return $text;
