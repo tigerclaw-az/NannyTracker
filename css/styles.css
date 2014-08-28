@@ -83,4 +83,9 @@ footer p a:hover{
 /*end footer styles */
 
 /* Global styles */
-.transparent-background { background-color: rgba(0,0,0,0); }
+.transparent-background{
+	background-color: rgba(0,0,0,0);
+}
+.blue-text{
+	color:#09f;
+}

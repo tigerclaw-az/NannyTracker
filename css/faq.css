@@ -1,40 +1,38 @@
-.grey-faq-col {
+.faq-col{
 	background-color:#e2e2e3;
 	padding-top:35px;
 	text-align:center;
 }
-.pad-top {
+.faq-header-text{
 	padding-top:65px;
+	padding-bottom:100px;
 }
-.marg-top {
+.faq-header-img{
 	margin-top:25px;
 }
-.wrap {
+.faq-content{
 	margin-top:30px;
 	padding-bottom:30px;
 }
-.faq-header {
+.faq-sections{
 	background-color:#ddd;
 	height:45px;
 	padding:10px;
 }
-.faq-body {
+.faq-body{
 	padding-top: 15px;
 	background-color: #eee;
 }
-.media-body {
+.media-body{
 	margin-top:30px;
 }
-.blue {
-	color:#09f;
-}
-.forum-p {
+.forum-p{
 	margin:0;
 }
-hr {
+hr{
 	background-color::#666;
 }
-.media a{
+.topic-holder a{
 	padding-left: 15px;
 	color: #8dc63f;
 }
