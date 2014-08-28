@@ -4,11 +4,25 @@ define([], function() {
 		require(['tpl!template/home.html'], function(tpl) {
 			$('#main').append($(tpl.apply()));
 		});
+		showProfileBtn();
 	}).exit(function() {
 		// Exit from route
 		$('#main').off().empty();
 	});
 });
+
+function showProfileBtn(){
+	console.log('checking ');
+	if(loggedIn){
+		console.log('loggedIn = true');
+		$("#loginPanel").addClass('hidden');
+		$("#userPanel").removeClass('hidden');
+	}else{
+		console.log('loggedIn = false');
+		$("#loginPanel").removeClass('hidden');
+		$("#userPanel").addClass('hidden');
+	}
+}
 
 $('body').on('slid.bs.carousel', '#homeSlider', function () {
 	var caption = $("#caption");
