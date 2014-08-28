@@ -1,22 +1,15 @@
-/*
-HTML 5 Template Name: 
-File: 404 - 17 CSS
-Author: OS Templates
-Author URI: http://www.os-templates.com/
-Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
-*/
-body{
+body {
 	background: url(../img/404-bg.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 }
-.f0f-body{
+.f0f-body {
 	display: inline-table;
 	width: 100%;
 }
-.f0f-content{
+.f0f-content {
 	vertical-align: middle;
 	height: 100vh;
 	display: table-cell;
