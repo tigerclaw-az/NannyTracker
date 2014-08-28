@@ -2,7 +2,7 @@
 
 $app->post('/login', function () use ($nannyDB)
 {
-	session_start();
+	@session_start();
 
 	$data = GetHTTPData();
 
@@ -16,18 +16,23 @@ $app->post('/login', function () use ($nannyDB)
 	$data->password = EscapeHtml($data->password);
 
 	try {
-		$result = $pppoauth->Login($data);
+		// $result = $pppoauth->Login($data);
+		$result = (object) array(
+			'username' => $data->username,
+			'password' => base64_encode(pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3"))
+		);
 		$appResponse = new AppResponse($result);
 
 		if ($result) {
 			$_SESSION['realUsername'] = $data->username;
 			$_SESSION['username'] = UnescapeHtml($result->username);
 			$_SESSION['password'] = UnescapeHtml($result->password);
-			$appResponse->data = [$result->TempCredentials];
+			$appResponse->data = [$result];
 			$appResponse->SetStatus(200);
 		} else {
 			ReportError(new \Exception("Invalid login credentials"), null, 401);
 		}
+
 	   echo json_encode($appResponse);
 	} catch (Exception $e) {
 		ReportError($e, 'Failed to call Login.');
