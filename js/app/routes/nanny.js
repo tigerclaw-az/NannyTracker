@@ -43,11 +43,16 @@ define([], function() {
 				}]
 			})));
 
-			$('.text-muted').on('click', function() {
-			$('.well').animate({height:200},300);
-		  	},function(){
-			$('.well').animate({height:130},300);
-	  });
+			$('.text-muted').data( 'clicks', 0 );
+			   $(".text-muted").on( 'click', function() {
+			      var clicks = +$( this ).data( 'clicks' );
+			      if( clicks % 2 === 0 ) {
+			         $('.well').animate({height:'400px'});
+			      } else {
+			         $('.well').animate({height:'200px'});
+			      }
+			      $( this ).data( 'clicks', clicks + 1 );
+			});
 
 			$containerCompleted.append(tplCT.apply({				
 					action: 'Change Diaper',
