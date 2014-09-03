@@ -43,6 +43,14 @@ define([], function() {
 				}]
 			})));
 
+			$('.text-muted').on('click', function() {
+				  $(".well").toggle(function(){
+					$(this).animate({height:200},300);
+				  },function(){
+					$(this).animate({height:130},300);
+				  });
+			});
+
 			$containerCompleted.append(tplCT.apply({				
 					action: 'Change Diaper',
 					time: moment().format('lll'),
