@@ -43,16 +43,7 @@ define([], function() {
 				}]
 			})));
 
-			$('.text-muted').data( 'clicks', 0 );
-			   $(".text-muted").on( 'click', function() {
-			      var clicks = +$( this ).data( 'clicks' );
-			      if( clicks % 2 === 0 ) {
-			         $('.well').animate({height:'230px'});
-			      } else {
-			         $('.well').animate({min-height:'20px'});
-			      }
-			      $( this ).data( 'clicks', clicks + 1 );
-			});
+			
 
 			$containerCompleted.append(tplCT.apply({				
 					action: 'Change Diaper',
