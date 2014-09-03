@@ -2,8 +2,13 @@
 .warning {
 	color: red !important;
 }
+
+.warning i {
+	cursor: pointer;
+}
 .text-left h4 i {
 	padding-right: 10px;
+	cursor: pointer;
 }
 .green-well{
 	min-height: 180px;
