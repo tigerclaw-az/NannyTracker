@@ -2,6 +2,9 @@
 .warning {
 	color: red !important;
 }
+.text-left h4 i {
+	padding-right: 10px;
+}
 .green-well{
 	min-height: 180px;
 	margin-bottom: 20px;
