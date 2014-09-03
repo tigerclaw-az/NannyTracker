@@ -44,12 +44,10 @@ define([], function() {
 			})));
 
 			$('.text-muted').on('click', function() {
-				  $('.well').toggle(function(){
-					$('.well').animate({height:200},300);
-				  },function(){
-					$('.well').animate({height:130},300);
-				  });
-			});
+			$('.well').animate({height:200},300);
+		  	},function(){
+			$('.well').animate({height:130},300);
+	  });
 
 			$containerCompleted.append(tplCT.apply({				
 					action: 'Change Diaper',
