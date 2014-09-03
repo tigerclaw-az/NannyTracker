@@ -47,9 +47,9 @@ define([], function() {
 			   $(".text-muted").on( 'click', function() {
 			      var clicks = +$( this ).data( 'clicks' );
 			      if( clicks % 2 === 0 ) {
-			         $('.well').animate({height:'400px'});
+			         $('.well').animate({height:'230px'});
 			      } else {
-			         $('.well').animate({height:'200px'});
+			         $('.well').animate({min-height:'20px'});
 			      }
 			      $( this ).data( 'clicks', clicks + 1 );
 			});
