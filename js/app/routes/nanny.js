@@ -43,11 +43,17 @@ define([], function() {
 				}]
 			})));
 
+			$('#check-complete').click(function() {
+				var action = $('#action h2');
+				var note = document.getElementById("note").select();
+				$('.container-completed').append(action, note);
+			});
+
 			$('#add-note').data( 'clicks', 0 );
 			   $("#add-note").on( 'click', function() {
 			      var clicks = +$( this ).data( 'clicks' );
 			      if( clicks % 2 === 0 ) {
-			         $('#task-box').animate({height:'230px'});
+			         $('#task-box').animate({height:'270px'});
 			      } else {
 			         $('#task-box').animate({height:'130px'});
 			      }

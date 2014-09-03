@@ -68,12 +68,12 @@
 								<div id="task-box" class="well">
 									<div class="row">
 										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" data-mark-complete>
-											<i class="fa fa-check-circle fa-5x"></i>
+											<i id="check-complete" class="fa fa-check-circle fa-5x"></i>
 										</div>
 										<div class="relative">
 											<div class="right-hr"></div>
 										</div>
-										<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+										<div id="action" class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
 											<h2>{{action}}</h2>
 										</div>
 									</div>
@@ -83,8 +83,13 @@
 										</div>
 										<!-- Add textarea -->
 									</div>
-									<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-										<h2>adsklfnadskfsad</h2>
+									<div class="row">
+										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+										<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+											<textarea id="note" placeholder="Add a note here...">
+												
+											</textarea>
+										</div>
 									</div>
 								</div>
 								{{/actions}}								
