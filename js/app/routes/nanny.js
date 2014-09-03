@@ -43,13 +43,13 @@ define([], function() {
 				}]
 			})));
 
-			$('.text-muted').data( 'clicks', 0 );
-			   $(".text-muted").on( 'click', function() {
+			$('#add-note').data( 'clicks', 0 );
+			   $("#add-note").on( 'click', function() {
 			      var clicks = +$( this ).data( 'clicks' );
 			      if( clicks % 2 === 0 ) {
-			         $('.well').animate({height:'230px'});
+			         $('#task-box').animate({height:'230px'});
 			      } else {
-			         $('.well').animate({height:'130px'});
+			         $('#task-box').animate({height:'130px'});
 			      }
 			      $( this ).data( 'clicks', clicks + 1 );
 			});
