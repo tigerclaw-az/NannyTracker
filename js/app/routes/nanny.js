@@ -49,7 +49,7 @@ define([], function() {
 			      if( clicks % 2 === 0 ) {
 			         $('.well').animate({height:'230px'});
 			      } else {
-			         $('.well').animate({min-height:'20px'});
+			         $('.well').animate({height:'20px'});
 			      }
 			      $( this ).data( 'clicks', clicks + 1 );
 			});
