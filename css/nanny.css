@@ -79,6 +79,7 @@
 }
 .tab-content i{
 	color: #8dc63f;
+	cursor: pointer;
 }
 h1, h2, h3, h4{
 	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
