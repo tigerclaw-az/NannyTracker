@@ -44,10 +44,10 @@ define([], function() {
 			})));
 
 			$('.text-muted').on('click', function() {
-				  $(".well").toggle(function(){
-					$(this).animate({height:200},300);
+				  $('.well').toggle(function(){
+					$('.well').animate({height:200},300);
 				  },function(){
-					$(this).animate({height:130},300);
+					$('.well').animate({height:130},300);
 				  });
 			});
 
