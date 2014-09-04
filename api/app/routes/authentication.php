@@ -101,7 +101,7 @@ $app->post('/reset', function()
 	try {
 		// Add email, hash, and expires to JSON file (resetPassword.json)
 		//read json
-		$file  = file_get_contents("resetPassword.json");
+		$file  = file_get_contents(APP_PATH.'db/resetPassword.json');
 		$userInfoAry = json_decode($file, true);
 
 		// make new info obj
@@ -115,7 +115,7 @@ $app->post('/reset', function()
 		array_push($userInfoAry, $userInfo);
 		 
 		$result = json_encode($userInfoAry);
-		file_put_contents('resetPassword.json', $result);
+		file_put_contents(APP_PATH.'/db/resetPassword.json', $result);
 
 		// TODO: Send email to user (hint: use mail())
 		echo json_encode(NewSuccessAppResponse(null));
