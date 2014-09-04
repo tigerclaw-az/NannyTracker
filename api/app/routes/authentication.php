@@ -97,14 +97,17 @@ $app->post('/reset', function()
 	$email = EscapeHtml($data->username);
 
 	try {
-		// TODO: Add email and hash to JSON file (resetPassword.json)
-		/*
-			[{
-				email: <emailaddress>,
-				hash: <hash>
-				expires: <DATE>			
-			}]
-		*/
+		// Add email, hash, and expires to JSON file (resetPassword.json)
+
+		$userInfo = (object) array(
+			'email' => $email,
+			'hash' => rtrim(base64_encode(md5(microtime())),"="),
+			'expires' => 'never'
+		);
+		 
+		$resetData = json_encode($userInfo);
+		file_put_contents('resetPassword.json', $resetData);
+
 		// TODO: Send email to user (hint: use mail())
 		echo json_encode(NewSuccessAppResponse(null));
 	} catch (Exception $e){
