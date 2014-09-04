@@ -22,7 +22,7 @@ define([], function() {
 
 			$('#login').on('submit', function(e) {
 				// $('#loginBtn i').removeClass('hidden').addClass('fa-spin');
-
+				console.log('login');
 				var user = $('#email').val(),
 					pass = $('#pass').val(),
 					xhr = $.ajax({
@@ -54,7 +54,7 @@ define([], function() {
 			});
 
 			$('#resetBtn').on('submit', function(e) {
-
+				console.log('reset');
 				var user = $('#email').val(),
 					xhr = $.ajax({
 						url: '/api/index.php/reset',
