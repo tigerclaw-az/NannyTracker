@@ -94,12 +94,20 @@ $app->post('/reset', function()
 		ReportError(new Exception('Missing required "username" property.'), null, 400);
 	}
 
-	$data->username = EscapeHtml($data->username);
+	$email = EscapeHtml($data->username);
 
 	try {
-		// add send email to user
-
+		// TODO: Add email and hash to JSON file (resetPassword.json)
+		/*
+			[{
+				email: <emailaddress>,
+				hash: <hash>
+				expires: <DATE>			
+			}]
+		*/
+		// TODO: Send email to user (hint: use mail())
+		echo json_encode(NewSuccessAppResponse(null));
 	} catch (Exception $e){
 		ReportError($e, null);
-	}
+	}	
 });

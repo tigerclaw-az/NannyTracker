@@ -67,9 +67,9 @@ define([], function() {
 				xhr
 				// .then(function() { /* pass */ }, function() { /* fail */ })
 				.done(function(data) {
-					window.location.hash = '#!/parent';
+					// Show success message to user
 				}).fail(function() {
-					
+					// Show fail message to user
 				})
 				.always(function() {
 					console.debug(arguments);
