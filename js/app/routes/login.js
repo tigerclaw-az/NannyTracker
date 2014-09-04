@@ -29,7 +29,7 @@ define([], function() {
 
 				if ($('#loginBtn').is(':visible')) {
 					xhr = $.ajax({
-						url: '/api/index.php/login',
+						url: 'api/index.php/login',
 						type: 'POST',
 						data: JSON.stringify({
 							username: user,
@@ -54,7 +54,7 @@ define([], function() {
 					});
 				} else {
 					xhr = $.ajax({
-						url: '/api/index.php/reset',
+						url: 'api/index.php/reset',
 						type: 'POST',
 						data: JSON.stringify({
 							username: user
