@@ -9,7 +9,7 @@ define([], function() {
 			$('footer').hide();
 
 			$('#signupCheck').on('click', function(){
-				if ($(this).is(':checked')){
+				if($(this).is(':checked')){
 					$('#pass').hide();
 					$('#loginBtn').addClass('hide');
 					$('#resetBtn').removeClass('hide');
@@ -51,7 +51,33 @@ define([], function() {
 				});
 
 				e.preventDefault();
-			});					
+			});
+
+			$('#resetBtn').on('submit', function(e) {
+
+				var user = $('#email').val(),
+					xhr = $.ajax({
+						url: '/api/index.php/reset',
+						type: 'POST',
+						data: JSON.stringify({
+							username: user
+						})
+					});
+
+				xhr
+				// .then(function() { /* pass */ }, function() { /* fail */ })
+				.done(function(data) {
+					window.location.hash = '#!/parent';
+				}).fail(function() {
+					
+				})
+				.always(function() {
+					console.debug(arguments);
+					// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
+				});
+
+				e.preventDefault();
+			});		
 		});
 	}).exit(function() {
 		// Exit from route

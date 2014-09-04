@@ -22,6 +22,7 @@ $app->post('/login', function () use ($nannyDB)
 			'password' => base64_encode(pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3")),
 			'userType' => floor(rand(0, 1)) === 1 ? 'parent' : 'nanny'
 		);
+		
 		$appResponse = new AppResponse($result);
 
 		if ($result) {
@@ -80,6 +81,24 @@ $app->get('/validate', function()
 	try {
 		/* TODO: Add check for user logged in */
 		// echo json_encode(NewSuccessAppResponse($response), JSON_PRETTY_PRINT);
+	} catch (Exception $e){
+		ReportError($e, null);
+	}
+});
+
+$app->post('/reset', function()
+{
+	$data = GetHTTPData();
+
+	if (empty($data->username)) {
+		ReportError(new Exception('Missing required "username" property.'), null, 400);
+	}
+
+	$data->username = EscapeHtml($data->username);
+
+	try {
+		// add send email to user
+
 	} catch (Exception $e){
 		ReportError($e, null);
 	}
