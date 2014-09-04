@@ -1,9 +1,7 @@
 define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
-		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {
-			var $containerCompleted = $('.container-completed');
-
+		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {			
 			$('#main').append($(tplNanny.apply({
 				generalNotes: 'Big blurb of text',
 				messages: [{
@@ -41,24 +39,9 @@ define([], function() {
 						action: 'Bath'
 					}]					
 				}]
-			})));
+			})));	
 
-			$('#check-complete').click(function() {
-				var action = $('#action h2');
-				var note = document.getElementById("note").select();
-				$('.container-completed').append(action, note);
-			});
-
-			$('#add-note').data( 'clicks', 0 );
-			   $("#add-note").on( 'click', function() {
-			      var clicks = +$( this ).data( 'clicks' );
-			      if( clicks % 2 === 0 ) {
-			         $('#task-box').animate({height:'270px'});
-			      } else {
-			         $('#task-box').animate({height:'130px'});
-			      }
-			      $( this ).data( 'clicks', clicks + 1 );
-			});
+			var $containerCompleted = $('.container-completed');
 
 			$containerCompleted.append(tplCT.apply({				
 					action: 'Change Diaper',
@@ -68,20 +51,34 @@ define([], function() {
 			}));
 
 			$('[data-mark-complete]').on('click', function(e) {
-				var $target = $(e.target);
+				var $target = $(e.target),
+					$taskBox = $target.parents('[data-task-box]'),
+					action = $taskBox.find('[data-action]').text(),
+					$note = $taskBox.find('[data-note]');
 
-				// console.debug(e);
-				// 1. Add completed task to "Completed" sidebar with current
-				//    time. (use momentjs)
+				console.debug($note.text());
+
 				$containerCompleted.append(tplCT.apply({
-					// Fill in information from row that was clicked
-				}))
+					action: action,
+					time: moment().format('lll'),
+					'isNote?': $note.val().length === 0 ? false : true,
+					note: $note.val()
+				}));
+
+				$note.addClass('hide');
 			});
 
-			$('[data-add-notes]').on('click', function(e) {
-				// console.debug(e);
-				// Show textarea when clicked
-			});
+			$("[data-add-note]").on('click', function(e) {					
+				var $target = $(e.target)
+					$taskBox = $target.parents('[data-task-box]')
+					$note = $taskBox.find('[data-note]');
+
+				  if ( $note.hasClass('hide') ) {
+					$note.removeClass('hide');
+				  } else {
+					$note.addClass('hide');
+				  }
+			});		
 		});
 	}).exit(function() {
 		// Exit from route

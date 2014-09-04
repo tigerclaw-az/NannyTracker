@@ -13,17 +13,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-			<div class="info">
-				<!-- <p>Feeding Child 1</p>
-				<ul>
-					<li>Make sure all bottles, nipples, and other utensils are clean.</li>
-					<li>Read the directions.</li>
-					<li>Prepare the formula.</li>
-					<li>Warm the refrigerated formula.</li>
-					<li>Place your baby in a feeding position.</li>
-					<li>Take note of your baby's intake.</li>
-					<li>Burp your baby.</li>
-				</ul> -->
+			<div class="info">				
 				{{generalNotes}}
 			</div>
 		</div>
@@ -65,30 +55,28 @@
 				    	<div class="row">
 					    	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					    		{{#actions}}
-								<div id="task-box" class="well">
+								<div class="well" data-task-box>
 									<div class="row">
 										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" data-mark-complete>
-											<i id="check-complete" class="fa fa-check-circle fa-5x"></i>
+											<i class="fa fa-check-circle fa-5x"></i>
 										</div>
 										<div class="relative">
 											<div class="right-hr"></div>
 										</div>
-										<div id="action" class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<h2>{{action}}</h2>
+										<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+											<h2 data-action>{{action}}</h2>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
-											<a id="add-note" class="text-muted" data-add-notes>Add notes</a>
+											<a class="text-muted" data-add-note>Add notes</a>
 										</div>
 										<!-- Add textarea -->
 									</div>
 									<div class="row">
 										<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
 										<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-											<textarea id="note" placeholder="Add a note here...">
-												
-											</textarea>
+											<textarea placeholder="Add a note here..." class="hide" data-note></textarea>
 										</div>
 									</div>
 								</div>
