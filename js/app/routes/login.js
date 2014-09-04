@@ -22,9 +22,12 @@ define([], function() {
 
 			$('#login').on('submit', function(e) {
 				// $('#loginBtn i').removeClass('hidden').addClass('fa-spin');
-				console.log('login');
-				var user = $('#email').val(),
+				var $target = $(e.target),
+					user = $('#email').val(),
 					pass = $('#pass').val(),
+					xhr;				
+
+				if ($('#loginBtn').is(':visible')) {
 					xhr = $.ajax({
 						url: '/api/index.php/login',
 						type: 'POST',
@@ -34,28 +37,22 @@ define([], function() {
 						})
 					});
 
-				xhr
-				// .then(function() { /* pass */ }, function() { /* fail */ })
-				.done(function(data) {
-					if (data.userType === 'parent') {
-						window.location.hash = '#!/parent';
-					} else {
-						window.location.hash = '#!/nanny';
-					}
-				}).fail(function() {
-					
-				})
-				.always(function() {
-					console.debug(arguments);
-					// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
-				});
-
-				e.preventDefault();
-			});
-
-			$('#resetBtn').on('submit', function(e) {
-				console.log('reset');
-				var user = $('#email').val(),
+					xhr
+					// .then(function() { /* pass */ }, function() { /* fail */ })
+					.done(function(data) {
+						if (data.userType === 'parent') {
+							window.location.hash = '#!/parent';
+						} else {
+							window.location.hash = '#!/nanny';
+						}
+					}).fail(function() {
+						
+					})
+					.always(function() {
+						console.debug(arguments);
+						// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
+					});
+				} else {
 					xhr = $.ajax({
 						url: '/api/index.php/reset',
 						type: 'POST',
@@ -64,17 +61,24 @@ define([], function() {
 						})
 					});
 
-				xhr
-				// .then(function() { /* pass */ }, function() { /* fail */ })
-				.done(function(data) {
-					// Show success message to user
-				}).fail(function() {
-					// Show fail message to user
-				})
-				.always(function() {
-					console.debug(arguments);
-					// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
-				});
+					xhr
+					// .then(function() { /* pass */ }, function() { /* fail */ })
+					.done(function(data) {
+						// Show success message to user
+					}).fail(function() {
+						// Show fail message to user
+					})
+					.always(function() {
+						console.debug(arguments);
+						// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
+					});
+				}
+
+				e.preventDefault();
+			});
+
+			$('#resetBtn').on('submit', function(e) {
+				
 
 				e.preventDefault();
 			});		
