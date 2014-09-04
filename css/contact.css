@@ -3,10 +3,13 @@
 	max-width: 540px;
 	resize: none;
 	margin-bottom:40px;
- }
- .phone-btn {
+}
+.phone-btn {
 	height:34px;
- }
+}
+.contact-header {
+	margin-top:50px !important;
+}
 @media only screen and (min-width : 320px) {
 	.email-message{
 		max-width: auto;
