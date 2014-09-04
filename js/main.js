@@ -25,6 +25,7 @@ require([
 	'route/home', 'route/about', 'route/contact',
 	'route/faq', 'route/login', 'route/signup',
 	'route/testimonials', 'route/nanny', 'route/parent',
+	'route/reset',
 ], function() {
 	Path.rescue(function() {
 		// window.location = '/404.html';
