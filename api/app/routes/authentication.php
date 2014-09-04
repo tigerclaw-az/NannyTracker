@@ -1,5 +1,7 @@
 <?php
 
+require_once APP_LIB_PATH . '/AppResponse.php';
+
 $app->post('/login', function () use ($nannyDB)
 {
 	@session_start();
