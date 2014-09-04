@@ -41,22 +41,18 @@ define([], function() {
 				}]
 			})));	
 
-			var $containerCompleted = $('.container-completed');
+			
 
-			$containerCompleted.append(tplCT.apply({				
-					action: 'Change Diaper',
-					time: moment().format('lll'),
-					'isNote?': true,
-					note: 'Screamed entire time'
-			}));
 
 			$('[data-mark-complete]').on('click', function(e) {
 				var $target = $(e.target),
+					$containerCompleted = $($('#myTab .active a').attr('href')).find('.container-completed'),
 					$taskBox = $target.parents('[data-task-box]'),
 					action = $taskBox.find('[data-action]').text(),
 					$note = $taskBox.find('[data-note]');
 
 				console.debug($note.text());
+
 
 				$containerCompleted.append(tplCT.apply({
 					action: action,
