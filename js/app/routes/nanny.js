@@ -41,9 +41,6 @@ define([], function() {
 				}]
 			})));	
 
-			
-
-
 			$('[data-mark-complete]').on('click', function(e) {
 				var $target = $(e.target),
 					$containerCompleted = $($('#myTab .active a').attr('href')).find('.container-completed'),
@@ -62,6 +59,17 @@ define([], function() {
 				}));
 
 				$note.addClass('hide');
+			});
+
+			$('.container-completed').delegate('[data-edit-completed]', 'click', function(e) {
+				var $target = $(e.target),
+					$completedAction = $target.parents('[data-completed-action]'),
+					$note = $completedAction.find('[data-completed-note]');
+
+				$note
+					.find('p').addClass('hide')
+					.end()
+					.find('input').removeClass('hide');
 			});
 
 			$("[data-add-note]").on('click', function(e) {					
