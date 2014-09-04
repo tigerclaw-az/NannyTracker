@@ -1,6 +1,8 @@
 define([], function() {
-	Path.map("#!/reset").to(function(){
+	Path.map("#!/reset(/:hash)").to(function(){
 	}).enter(function() {
+		var hash = this.params['hash'];
+		
 		require(['tpl!template/reset.html'], function(tpl){
 			$('#main').append($(tpl.apply()));
 
