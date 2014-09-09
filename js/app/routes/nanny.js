@@ -48,9 +48,6 @@ define([], function() {
 					action = $taskBox.find('[data-action]').text(),
 					$note = $taskBox.find('[data-note]');
 
-				console.debug($note.text());
-
-
 				$containerCompleted.append(tplCT.apply({
 					action: action,
 					time: moment().format('lll'),
@@ -70,9 +67,11 @@ define([], function() {
 					.find('p').addClass('hide')
 					.end()
 					.find('input').removeClass('hide');
+
+				$completedAction.find('[data-edit-done]').removeClass('hide');
 			});
 
-			$("[data-add-note]").on('click', function(e) {					
+			$('[data-add-note]').on('click', function(e) {					
 				var $target = $(e.target)
 					$taskBox = $target.parents('[data-task-box]')
 					$note = $taskBox.find('[data-note]');
@@ -82,7 +81,7 @@ define([], function() {
 				  } else {
 					$note.addClass('hide');
 				  }
-			});		
+			});
 		});
 	}).exit(function() {
 		// Exit from route
