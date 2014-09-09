@@ -43,14 +43,14 @@ $app->configureMode('development', function () use ($app) {
 		'debug' => true,
 	));
 
-	// if (!is_dir('./logs')) {
-		// mkdir('./logs', 0777, true);
-	// }
+	if (!is_dir('./logs')) {
+		mkdir('./logs', 0777, true);
+	}
 
-	// $log = $app->getLog();
-	// $log->setEnabled(true);
-	// $log->setLevel(\Slim\Log::DEBUG);
-	// $log->setWriter(new \Slim\Extras\Log\DateTimeFileWriter(array('path' => './logs')));
+	$log = $app->getLog();
+	$log->setEnabled(true);
+	$log->setLevel(\Slim\Log::DEBUG);
+	$log->setWriter(new \Slim\Extras\Log\DateTimeFileWriter(array('path' => './logs')));
 });
 
 // Library includes
