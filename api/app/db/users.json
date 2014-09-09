@@ -1,0 +1,19 @@
+[{
+	"id": 1,
+	"email": "admin@nannytracker.com",
+	"password": "86b2b3ac080bf8d6df8de0acb97968bf",
+	"isParent": true,
+	"isNanny": true,	
+}, {
+	"id": 2,
+	"email": "parent@nannytracker.com",
+	"password": "86b2b3ac080bf8d6df8de0acb97968bf",
+	"isParent": true,
+	"isNanny": false
+}, {
+	"id": 3,
+	"email": "nanny@nannytracker.com",
+	"password": "86b2b3ac080bf8d6df8de0acb97968bf",
+	"isParent": false,
+	"isNanny": true
+}]
