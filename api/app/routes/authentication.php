@@ -7,6 +7,7 @@ $app->post('/login', function () use ($nannyDB)
 	@session_start();
 
 	$data = GetHTTPData();
+	$result = null;
 
 	if (empty($data->username)) {
 		ReportError(new Exception('Missing required "username" property.'), null, 400);
@@ -18,12 +19,16 @@ $app->post('/login', function () use ($nannyDB)
 	$data->password = EscapeHtml($data->password);
 
 	try {
-		// $result = $pppoauth->Login($data);
-		$result = (object) array(
-			'username' => $data->username,
-			'password' => base64_encode(pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3")),
-			'userType' => floor(rand(0, 1)) === 1 ? 'parent' : 'nanny'
-		);
+		$file  = file_get_contents(APP_PATH . 'db/users.json');
+		$users = json_decode($file, true);
+
+		foreach ($users as $user) {
+			if ($user['email'] === $data->username && 
+				password_verify($data->password, $user['password']) {
+					$result = (object) $user;
+					continue;
+				}
+		}		
 		
 		$appResponse = new AppResponse($result);
 
@@ -34,12 +39,12 @@ $app->post('/login', function () use ($nannyDB)
 			$appResponse->data = [$result];
 			$appResponse->SetStatus(200);
 		} else {
-			ReportError(new \Exception("Invalid login credentials"), null, 401);
+			ReportError(new \Exception('Invalid credentials, please try again'), null, 401);
 		}
 
 	   echo json_encode($appResponse);
 	} catch (Exception $e) {
-		ReportError($e, 'Failed to call Login.');
+		ReportError($e, 'Failed login');
 	}
 });
 
