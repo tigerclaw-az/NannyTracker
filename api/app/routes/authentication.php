@@ -10,41 +10,41 @@ $app->post('/login', function () use ($nannyDB)
 	$result = null;
 
 	if (empty($data->username)) {
-		ReportError(new Exception('Missing required "username" property.'), null, 400);
+		ReportError(new Exception('Missing required "username" property.'), 400);
 	} elseif (empty($data->password)) {
-		ReportError(new Exception('Missing required "password" property.'), null, 400);
+		ReportError(new Exception('Missing required "password" property.'), 400);
 	}
 
 	$data->username = EscapeHtml($data->username);
 	$data->password = EscapeHtml($data->password);
 
 	try {
-		$file  = file_get_contents(APP_PATH . 'db/users.json');
+		$file  = file_get_contents(APP_PATH . '/db/users.json');
 		$users = json_decode($file, true);
 
 		foreach ($users as $user) {
-			if ($user['email'] === $data->username && 
-				password_verify($data->password, $user['password']) {
+			if ($user['email'] === $data->username &&
+				password_verify($data->password, $user['password'])) {
 					$result = (object) $user;
 					continue;
 				}
-		}		
-		
+		}
+
 		$appResponse = new AppResponse($result);
 
 		if ($result) {
 			$_SESSION['realUsername'] = $data->username;
-			$_SESSION['username'] = UnescapeHtml($result->username);
+			$_SESSION['username'] = UnescapeHtml($result->email);
 			$_SESSION['password'] = UnescapeHtml($result->password);
 			$appResponse->data = [$result];
 			$appResponse->SetStatus(200);
 		} else {
-			ReportError(new \Exception('Invalid credentials, please try again'), null, 401);
+			ReportError(new \Exception('Invalid credentials, please try again'), 401);
 		}
 
 	   echo json_encode($appResponse);
 	} catch (Exception $e) {
-		ReportError($e, 'Failed login');
+		ReportError($e, 500);
 	}
 });
 
@@ -106,7 +106,7 @@ $app->post('/reset', function()
 	try {
 		// Add email, hash, and expires to JSON file (resetPassword.json)
 		//read json
-		$file  = file_get_contents(APP_PATH.'db/resetPassword.json');
+		$file  = file_get_contents(APP_PATH . '/db/resetPassword.json');
 		$userInfoAry = json_decode($file, true);
 
 		// make new info obj
@@ -118,7 +118,7 @@ $app->post('/reset', function()
 
 		//insert into json
 		array_push($userInfoAry, $userInfo);
-		 
+
 		$result = json_encode($userInfoAry);
 		file_put_contents(APP_PATH.'/db/resetPassword.json', $result);
 
@@ -126,5 +126,5 @@ $app->post('/reset', function()
 		echo json_encode(NewSuccessAppResponse(null));
 	} catch (Exception $e){
 		ReportError($e, null);
-	}	
+	}
 });

@@ -25,7 +25,7 @@ define([], function() {
 				var $target = $(e.target),
 					user = $('#email').val(),
 					pass = $('#pass').val(),
-					xhr;				
+					xhr;
 
 				if ($('#loginBtn').is(':visible')) {
 					xhr = $.ajax({
@@ -39,14 +39,16 @@ define([], function() {
 
 					xhr
 					// .then(function() { /* pass */ }, function() { /* fail */ })
-					.done(function(data) {
-						if (data.userType === 'parent') {
+					.done(function(result) {
+						var user = result.data[0];
+
+						if (user.isParent) {
 							window.location.hash = '#!/parent';
 						} else {
 							window.location.hash = '#!/nanny';
 						}
 					}).fail(function() {
-						
+
 					})
 					.always(function() {
 						console.debug(arguments);
@@ -78,10 +80,10 @@ define([], function() {
 			});
 
 			$('#resetBtn').on('submit', function(e) {
-				
+
 
 				e.preventDefault();
-			});		
+			});
 		});
 	}).exit(function() {
 		// Exit from route
