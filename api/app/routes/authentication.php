@@ -135,3 +135,86 @@ $app->post('/reset', function()
 		ReportError($e, null);
 	}
 });
+
+$app->post('/signup', function()
+{
+	// i think this need to be seperated into 2 apis
+	// one for sending email and once you get back to site from email we need to do all the stuff i have below:
+	@session_start();
+
+	$data = GetHTTPData();
+	$result = null;
+
+	if (empty($data->username)) {
+		ReportError(new Exception('Missing required "username" property.'), 400);
+	} elseif (empty($data->password)) {
+		ReportError(new Exception('Missing required "password" property.'), 400);
+	} elseif (empty($data->firstname)) {
+		ReportError(new Exception('Missing required "firstname" property.'), 400);
+	} elseif (empty($data->lastname)) {
+		ReportError(new Exception('Missing required "lastname" property.'), 400);
+	} elseif (empty($data->address)) {
+		ReportError(new Exception('Missing required "address" property.'), 400);
+	} elseif (empty($data->city)) {
+		ReportError(new Exception('Missing required "city" property.'), 400);
+	} elseif (empty($data->state)) {
+		ReportError(new Exception('Missing required "state" property.'), 400);
+	} elseif (empty($data->phone)) {
+		ReportError(new Exception('Missing required "phone" property.'), 400);
+	} elseif (empty($data->dob)) {
+		ReportError(new Exception('Missing required "dob" property.'), 400);
+	} elseif (empty($data->gender)) {
+		ReportError(new Exception('Missing required "gender" property.'), 400);
+	}
+
+	$data->username  = EscapeHtml($data->username);
+	$data->password  = EscapeHtml($data->password);
+	$data->firstname = EscapeHtml($data->firstname);
+	$data->lastname  = EscapeHtml($data->lastname);
+	$data->address   = EscapeHtml($data->address);
+	$data->city      = EscapeHtml($data->city);
+	$data->state     = EscapeHtml($data->state);
+	$data->phone     = EscapeHtml($data->phone);
+	$data->dob       = EscapeHtml($data->dob);
+	$data->gender    = EscapeHtml($data->gender);
+
+
+	try {
+		// Add new user with new info to JSON file (users.json)
+		//read json
+		$file  = file_get_contents(APP_PATH . '/db/users.json');
+		$curUsers = json_decode($file, true);
+
+		// make new user obj
+		$newUser = (object) array(
+			'email'     => $data->username,
+			'password'  => $data->password,
+			'firstname' => $data->firstname,
+			'lastname'  => $data->lastname,
+			'address'   => $data->address,
+			'city'      => $data->city,
+			'state'     => $data->state,
+			'phone'     => $data->phone,
+			'dob'       => $data->dob,
+			'gender'    => $data->gender,
+		);
+
+		//insert into json
+		array_push($curUsers, $newUser);
+
+		$result = json_encode($curUsers);
+		file_put_contents(APP_PATH.'/db/resetPassword.json', $result);
+
+		/// Send confirmation email to user 
+	    $from = 'Nanny Tracker'; // sender
+	    $subject = 'Nanny Tracker account confirmation';
+	    $message = "please click the link below to confirm your account\n\n<a href='nannytracker.com/login'>Reset password</a>";
+	    $message = wordwrap($message, 70);
+
+	    mail($email,$subject,$message,"From: $from\n");
+	    
+		echo json_encode(NewSuccessAppResponse(null));
+	} catch (Exception $e){
+		ReportError($e, null);
+	}
+});
