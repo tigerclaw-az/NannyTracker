@@ -122,7 +122,14 @@ $app->post('/reset', function()
 		$result = json_encode($userInfoAry);
 		file_put_contents(APP_PATH.'/db/resetPassword.json', $result);
 
-		// TODO: Send email to user (hint: use mail())
+		/// Send reset email to user 
+	    $from = 'Nanny Tracker'; // sender
+	    $subject = 'Nanny Tracker password reset';
+	    $message = "please click the link below to reset your password\n\n<a href='nannytracker.com/reset'>Reset password</a>";
+	    $message = wordwrap($message, 70);
+
+	    mail($email,$subject,$message,"From: $from\n");
+	    
 		echo json_encode(NewSuccessAppResponse(null));
 	} catch (Exception $e){
 		ReportError($e, null);
