@@ -3,6 +3,18 @@ define([], function() {
 	}).enter(function() {
 		require(['tpl!template/parent.html', 'moment' ], function(tpl) {
 
+		$.ajax({
+			url: 'api/index.php/Children',
+			type: 'GET',
+		}).done(function(data) {
+			// put children where they go
+		}).fail(function() {
+			
+		})
+		.always(function() {
+			console.debug(arguments);
+		});
+
 		$('#logout').on('click', function(e) {
 				var xhr;				
 
