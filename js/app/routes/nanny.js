@@ -3,6 +3,18 @@ define([], function() {
 	}).enter(function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {
 
+		$.ajax({
+			url: 'api/index.php/getChildren',
+			type: 'GET',
+		}).done(function(data) {
+			// put children where they go
+		}).fail(function() {
+			
+		})
+		.always(function() {
+			console.debug(arguments);
+		});
+		
 		$('#logout').on('click', function(e) {
 				var xhr;				
 
