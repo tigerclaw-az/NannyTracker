@@ -2,6 +2,28 @@ define([], function() {
 	Path.map("#!/parent").to(function(){
 	}).enter(function() {
 		require(['tpl!template/parent.html', 'moment' ], function(tpl) {
+
+		$('#logout').on('click', function(e) {
+				var xhr;				
+
+					xhr = $.ajax({
+						url: 'api/index.php/logout',
+						type: 'GET',
+					});
+
+					xhr
+					.done(function(data) {
+						window.location.hash = '#!/home';
+					}).fail(function() {
+						
+					})
+					.always(function() {
+						console.debug(arguments);
+					});
+
+				e.preventDefault();
+			});
+			
 			$('#main').append($(tpl.apply({
 				messages: [{
 					message: 'Hey!',

@@ -1,7 +1,29 @@
 define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
-		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {			
+		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {
+
+		$('#logout').on('click', function(e) {
+				var xhr;				
+
+					xhr = $.ajax({
+						url: 'api/index.php/logout',
+						type: 'GET',
+					});
+
+					xhr
+					.done(function(data) {
+						window.location.hash = '#!/home';
+					}).fail(function() {
+						
+					})
+					.always(function() {
+						console.debug(arguments);
+					});
+
+				e.preventDefault();
+			});
+				
 			$('#main').append($(tplNanny.apply({
 				generalNotes: 'Big blurb of text',
 				messages: [{
