@@ -8,26 +8,26 @@ define([], function() {
 			$('#main').addClass('transparent-background');
 			$('footer').hide();
 
-			$('#signupCheck').on('click', function(){
+			$('#forgot-password').on('click', function(){
 				if($(this).is(':checked')){
 					$('#pass').hide();
-					$('#loginBtn').addClass('hide');
-					$('#resetBtn').removeClass('hide');
+					$('#button-login').addClass('hide');
+					$('#button-reset').removeClass('hide');
 				}else{
 					$('#pass').show();
-					$('#loginBtn').removeClass('hide');
-					$('#resetBtn').addClass('hide');
+					$('#button-login').removeClass('hide');
+					$('#button-reset').addClass('hide');
 				}
 			});
 
 			$('#login').on('submit', function(e) {
-				// $('#loginBtn i').removeClass('hidden').addClass('fa-spin');
+				// $('#button-login i').removeClass('hidden').addClass('fa-spin');
 				var $target = $(e.target),
 					user = $('#email').val(),
 					pass = $('#pass').val(),
 					xhr;
 
-				if ($('#loginBtn').is(':visible')) {
+				if ($('#button-login').is(':visible')) {
 					xhr = $.ajax({
 						url: 'api/index.php/login',
 						type: 'POST',
@@ -39,20 +39,19 @@ define([], function() {
 
 					xhr
 					// .then(function() { /* pass */ }, function() { /* fail */ })
-					.done(function(result) {
-						var user = result.data[0];
+					.done(function(response) {
+						var user = response.data[0];
 
 						if (user.isParent) {
 							window.location.hash = '#!/parent';
 						} else {
 							window.location.hash = '#!/nanny';
 						}
-					}).fail(function() {
-
+					}).fail(function(jqXHR, status, error) {
+						$('#login-error').text(error).show();
 					})
 					.always(function() {
-						console.debug(arguments);
-						// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
+						// $('#button-login i').removeClass('fa-spin').addClass('hidden');
 					});
 				} else {
 					xhr = $.ajax({
@@ -72,15 +71,9 @@ define([], function() {
 					})
 					.always(function() {
 						console.debug(arguments);
-						// $('#loginBtn i').removeClass('fa-spin').addClass('hidden');
+						// $('#button-login i').removeClass('fa-spin').addClass('hidden');
 					});
 				}
-
-				e.preventDefault();
-			});
-
-			$('#resetBtn').on('submit', function(e) {
-
 
 				e.preventDefault();
 			});
