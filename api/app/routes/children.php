@@ -3,7 +3,7 @@
 require_once APP_LIB_PATH . '/AppResponse.php';
 
 
-// need help i think i did this right but i dont know where to put getting al children
+// need help i think i did this right but i dont know where to put getting all children
 $app->group('/children', function() use ($app, $nannyDB) {
 
 	// find child with id
