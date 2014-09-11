@@ -3,8 +3,10 @@ define([], function() {
 	}).enter(function() {
 		require(['tpl!template/signup.html'], function(tpl) {
 
+			$('#main').append($(tpl.apply()));
+
 			$('#signup').on('submit', function(e) {
-				var email    = $('#email').val(),
+				var email   = $('#email').val(),
 					pass    = $('#pass').val(),
 					first   = $('#first').val(),
 					last    = $('#last').val(),
@@ -20,7 +22,7 @@ define([], function() {
 					url: 'api/index.php/signup',
 					type: 'POST',
 					data: JSON.stringify({
-						email:  email,
+						email:     email,
 						password:  pass,
 						firstname: first,
 						lastname:  last,
@@ -40,14 +42,13 @@ define([], function() {
 				}).fail(function(jqXHR, status, error) {
 					//$('#signup-error').text(error).show();
 				})
-				.always(function() {
+				.always(function(response) {
 					// always stuff
+					console.debug(response);
 				});
 
 				e.preventDefault();
 			});
-
-			$('#main').append($(tpl.apply()));
 		});
 	}).exit(function() {
 		// Exit from route
