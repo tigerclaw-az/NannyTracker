@@ -4,7 +4,7 @@ define([], function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {
 
 			$.ajax({
-				url: 'api/index.php/Children',
+				url: 'api/index.php/children',
 				type: 'GET',
 			}).done(function(data) {
 				// put children where they go
