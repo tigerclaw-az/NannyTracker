@@ -40,7 +40,9 @@ define([], function() {
 					//$('#signup-sent').text(response).show();
 					//your request has been sent please check your email.
 				}).fail(function(jqXHR, status, error) {
-					//$('#signup-error').text(error).show();
+					var response = JSON.parse(jqXHR.responseText);
+						
+					$('#signup-error').text(response.statusText).show();
 				})
 				.always(function(response) {
 					// always stuff
