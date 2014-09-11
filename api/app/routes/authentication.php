@@ -178,7 +178,7 @@ $app->post('/signup', function()
 		foreach ($curUsers as $user) {
 			if ($user['email'] === $data->email) {
 				// should break try
-				throw new Exception();
+				throw new Exception('This email is already being used by another user.');
 			}
 		}
 
