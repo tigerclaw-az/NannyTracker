@@ -5,7 +5,8 @@
 		"password": "$2y$10$c7ZQnzy2Mie1MQs4hknnhu2iXvnPLpQns5Zh3UU9aZ3eSTD1OuTge",
 		"isParent": true,
 		"isNanny": true,
-		"validated": true
+		"validated": true,
+		"expirationDate": null
 	},
 	{
 		"id": 2,
@@ -13,7 +14,8 @@
 		"password": "$2y$10$IVCpcWeaxTVBw5jHFRS2RuGjAoyEs2KL0nzl/PLP.Rl9QHCRZTY9G",
 		"isParent": true,
 		"isNanny": false,
-		"validated": true
+		"validated": true,
+		"expirationDate": null
 	},
 	{
 		"id": 3,
@@ -21,6 +23,7 @@
 		"password": "$2y$10$zvnCrbtKQEzZ5TVH10apfepbyePH4K9xK4qn1vxpFdEwbQilrWocC",
 		"isParent": false,
 		"isNanny": true,
-		"validated": true
+		"validated": true,
+		"expirationDate": "20140927T00:00:00"
 	}
 ]
