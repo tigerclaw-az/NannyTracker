@@ -42,6 +42,7 @@ define([], function() {
 				}).fail(function(jqXHR, status, error) {
 					var response = JSON.parse(jqXHR.responseText);
 						
+					$('#container-signup-error').removeClass('hide');
 					$('#signup-error').text(response.statusText).show();
 				})
 				.always(function(response) {
