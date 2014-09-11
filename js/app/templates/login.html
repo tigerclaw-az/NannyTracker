@@ -2,7 +2,10 @@
 	<div class="row-fluid">
 		<div class="col-lg-6 col-lg-offset-3 login-form">
 			<a href="#!/home"><img class="login-logo" src="img/logo-green.svg" alt="Logo" width="315" height="auto"></a>
-			<p id="login-error"></p>
+			<div id="container-login-error" class="hide alert alert-danger alert-error">
+			    <a href="#" class="close" data-dismiss="alert">&times;</a>
+			    <strong>Error!</strong> <span id="login-error"></span>
+			</div>
 			<form id="login" method="post" autocomplete="on">
 				<input type="email" class="form-control input-size" id="email" placeholder="Email" autocomplete="on" autofocus="true" required>
 				<input type="password" class="form-control input-margin input-size" id="pass" placeholder="Password" required>
@@ -15,4 +18,8 @@
 			</ul>
 		</div>
 	</div>
+</div>
+
+<div class="bs-example">
+    
 </div>
