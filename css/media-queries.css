@@ -4,7 +4,7 @@
 	}
 }
 @media screen and (max-width: 991px) {
-	nav {
-		display:inline-block !important;
+	.featured-well {
+		border:none;
 	}
 }
