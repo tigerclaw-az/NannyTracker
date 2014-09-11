@@ -4,6 +4,10 @@ require_once APP_LIB_PATH . '/AppResponse.php';
 
 $app->post('/login', function () use ($nannyDB)
 {
+	if (!function_exists('password_verify')) {
+		require_once APP_LIB_PATH . '/PasswordHashing/passwordLib.php';
+	}
+
 	@session_start();
 
 	$data = GetHTTPData();
