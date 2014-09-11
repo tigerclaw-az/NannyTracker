@@ -16,15 +16,13 @@ class AppResponse
 
 	public function __construct($result) {
 		$app = $GLOBALS["app"];
-		$this->status = $app->response()->status();
+		$this->status = $app->response()->getStatus();
 		$this->errors = array();
 
 		$this->data = (!empty($result->data) && !empty($result->data[0])) ? $result->data : array();
 
 		if (empty($this->data)) {
 			$this->SetStatus(204);
-		} else {
-			$this->SetStatus($this->status);
 		}
 
 		$this->statusText = (empty($this->statusText)) ? get_response_text($this->status) : $this->statusText;
@@ -48,8 +46,6 @@ class AppResponse
 	public function SetStatus($status, $text = null) {
 		$this->status = $status;
 		$this->statusText = !empty($text) ? $text : get_response_text($this->status);
-
-		return true;
 	}
 }
 

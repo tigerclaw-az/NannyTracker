@@ -44,7 +44,7 @@ $app->post('/login', function () use ($nannyDB)
 			$appResponse->SetStatus(200);
 		} else {
 			ReportError(new \Exception('Invalid credentials, please try again'), 401);
-		}
+		}		
 
 	   echo json_encode($appResponse);
 	} catch (Exception $e) {

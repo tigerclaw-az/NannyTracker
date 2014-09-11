@@ -18,7 +18,7 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-completed-note>
-			{{#isNote?}}NOTE: <p>{{note}}</p><input type="text" class="hide" value="{{note}}">{{/isNote?}}
+			{{#isNote?}}NOTE: <p>{{note}}</p><textarea class="hide" value="{{note}}" data-completed-note>{{note}}</textarea>{{/isNote?}}
 		</div>
 	</div>
 	<div class="row hide" data-edit-done>

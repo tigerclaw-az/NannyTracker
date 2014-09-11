@@ -104,7 +104,7 @@ define([], function() {
 				$note
 					.find('p').addClass('hide')
 					.end()
-					.find('input').removeClass('hide');
+					.find('[data-completed-note]').removeClass('hide');
 
 				$time
 					.find('p').addClass('hide')
