@@ -13,6 +13,9 @@ require_once APP_LIB_PATH . '/Slim/Extras/Log/DateTimeFileWriter.php';
 
 require_once('config.php');
 
+// Library includes
+include_once APP_LIB_PATH . '/Utils.php';
+
 // require_once APP_LIB_PATH . '/medoo.php';
 // $nannyDB = new medoo(array(
 // 	'database_name' => DB_NAME,
@@ -28,6 +31,11 @@ date_default_timezone_set('America/Phoenix');
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim(array('mode' => 'development'));
+
+// TODO: Move to Utils.php? Call from every API
+// if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+// 	ReportError(new Exception('Invalid credentials. Must login first.'), 401);
+// }
 
 // Only invoked if mode is "production"
 /*$app->configureMode('production', function () use ($app) {
@@ -53,9 +61,6 @@ $app->configureMode('development', function () use ($app) {
 	$log->setWriter(new \Slim\Extras\Log\DateTimeFileWriter(array('path' => './logs')));
 });
 
-// Library includes
-include_once APP_LIB_PATH . '/Utils.php';
-
 // Route definitions
 require_once APP_ROUTE_PATH . '/authentication.php';
 // require_once APP_ROUTE_PATH . '/nanny.php';
@@ -63,7 +68,3 @@ require_once APP_ROUTE_PATH . '/authentication.php';
 $app->response->headers->set('Access-Control-Allow-Origin', '*');
 $app->response->headers->set('Content-Type', 'application/json');
 $app->run();
-
-if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-	ReportError(new Exception('Invalid credentials. Must login first.'), 401);
-}
