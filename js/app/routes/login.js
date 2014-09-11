@@ -48,7 +48,9 @@ define([], function() {
 							window.location.hash = '#!/nanny';
 						}
 					}).fail(function(jqXHR, status, error) {
-						$('#login-error').text(error).show();
+						var response = JSON.parse(jqXHR.responseText);
+						
+						$('#login-error').text(response.statusText).show();
 					})
 					.always(function() {
 						// $('#button-login i').removeClass('fa-spin').addClass('hidden');
