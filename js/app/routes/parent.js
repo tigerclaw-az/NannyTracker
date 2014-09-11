@@ -1,7 +1,7 @@
 define([], function() {
 	Path.map("#!/parent").to(function(){
 	}).enter(function() {
-		require(['tpl!template/parent.html', 'moment' ], function(tpl) {
+		require(['tpl!template/parent.html'], function(tpl) {
 
 		$.ajax({
 			url: 'api/index.php/children',

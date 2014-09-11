@@ -1,7 +1,7 @@
 define([], function() {
 	Path.map("#!/faq").to(function(){
 	}).enter(function() {
-		require(['tpl!template/faq.html', 'moment'], function(tpl) {
+		require(['tpl!template/faq.html'], function(tpl) {
 			$('#main').append($(tpl.apply({
 				faqRow: [{
 					subject: 'Newcommers!',

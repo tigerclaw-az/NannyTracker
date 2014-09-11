@@ -1,7 +1,7 @@
 define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
-		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {
+		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
 
 			$.ajax({
 				url: 'api/index.php/children',
@@ -99,7 +99,7 @@ define([], function() {
 					$time = $completedAction.find('[data-completed-time]');
 
 				// FIXME: This needs to be moved
-				$('.datepicker').datetimepicker();
+				$('.date').datetimepicker();
 
 				$note
 					.find('p').addClass('hide')
