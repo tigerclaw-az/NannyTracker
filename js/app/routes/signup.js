@@ -5,6 +5,10 @@ define([], function() {
 
 			$('#main').append($(tpl.apply()));
 
+			$('#close').on('click', function(){
+				$('#container-login-error').addClass('hide');
+			})
+
 			$('#signup').on('submit', function(e) {
 				var email   = $('#email').val(),
 					pass    = $('#pass').val(),
