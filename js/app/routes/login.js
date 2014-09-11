@@ -10,11 +10,11 @@ define([], function() {
 
 			$('#forgot-password').on('click', function(){
 				if($(this).is(':checked')){
-					$('#pass').hide();
+					$('#password').hide();
 					$('#button-login').addClass('hide');
 					$('#button-reset').removeClass('hide');
 				}else{
-					$('#pass').show();
+					$('#password').show();
 					$('#button-login').removeClass('hide');
 					$('#button-reset').addClass('hide');
 				}
@@ -28,7 +28,7 @@ define([], function() {
 				// $('#button-login i').removeClass('hidden').addClass('fa-spin');
 				var $target = $(e.target),
 					user = $('#email').val(),
-					pass = $('#pass').val(),
+					pass = $('#password').val(),
 					xhr;
 
 				if ($('#button-login').is(':visible')) {

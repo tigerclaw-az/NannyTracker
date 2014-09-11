@@ -1,3 +1,7 @@
+#password {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 .login-form {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -16,33 +20,16 @@
 	-moz-box-shadow:    2px 4px 19px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         2px 4px 19px 0px rgba(50, 50, 50, 0.75);
 }
-.login-cont{
-	padding: 15px;
-	margin: 0 auto;
-}
+
 .login-logo {
 	margin-bottom: 45px;
 }
-.input-margin {
-	margin-top: 10px;
-}
-.btn-margin {
-	margin-top: 25px !important;
-}
+
 .input-size {
 	height: 45px;
 	background-color: #f1f1f1;
 }
-button {
-	height: 35px;
-	padding-top: 15px;
-}
-.form-check {
-	margin-top: 30px Important;
-	width: 15px;
-	height: 15px;
-	float: left;
-}
-.forgot-pass{
+
+.forgot-password{
 	margin-top: 20px;
 }

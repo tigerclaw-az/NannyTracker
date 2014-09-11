@@ -7,12 +7,12 @@
 			    <strong>Error!</strong> <span id="login-error"></span>
 			</div>
 			<form id="login" method="post" autocomplete="on">
-				<input type="email" class="form-control input-size" id="email" placeholder="Email" autocomplete="on" autofocus="true" required>
-				<input type="password" class="form-control input-margin input-size" id="pass" placeholder="Password" required>
-				<button id="button-login" class="btn btn-primary btn-block btn-lg btn-margin login-btn"><i class="hidden fa fa-spinner"></i>Login</button>
-				<button id="button-reset" class="btn btn-primary btn-block btn-lg btn-margin login-btn hide">Reset Password</button>
+				<input type="email" name="email" id="email" class="form-control input-size" placeholder="Email" autocomplete="on" autofocus="true" required>
+				<input type="password" id="password" name="password" class="form-control input-size" placeholder="Password" required>
+				<button id="button-login" class="btn btn-primary btn-block btn-lg login-btn"><i class="hidden fa fa-spinner"></i>Login</button>
+				<button id="button-reset" class="btn btn-primary btn-block btn-lg login-btn hide">Reset Password</button>
 			</form>
-			<ul class="list-inline forgot-pass">
+			<ul class="list-inline forgot-password">
 				<li><input type="checkbox" class="form-check" id="forgot-password"></li>
 				<li>Forgot Password?</li>
 			</ul>
