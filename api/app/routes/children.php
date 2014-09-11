@@ -3,22 +3,24 @@
 require_once APP_LIB_PATH . '/AppResponse.php';
 
 
-// need help i think i did this right but i dont know where to put getting all children
 $app->group('/children', function() use ($app, $nannyDB) {
 
+	// $app->map('', function() {
+	// 	if ($app->isPost()) {
+	// 		// TODO: Add new child
+	// 	} else {
+	// 		// Get all children
+	// 	}
+	// })->via('GET', 'POST');
+
 	// find child with id
-	$app->get('/children/:id', function($id) {
-
-	});
-
-	// update child with id
-	$app->post('/children/:id', function($id) {
-
-	});
-
-	// delete child with id
-	$app->delete('/children/:id', function($id) {
-
-	});
-
+	$app->map('/:id', function($id) use($app) {
+		if ($app->isPost()) {
+			// TODO: Update child
+		} elseif ($app->isDelete()) {
+			// TODO: Delete child
+		} else {
+			// TODO: Get child with :id
+		}
+	})->via('DELETE', 'GET', 'POST');
 });
