@@ -8,7 +8,8 @@
 	text-align: center;
 	margin-top: 90px;
 	margin-bottom: 90px;
-	height: 400px;
+	height: auto;
+	padding-bottom: 15px;
 	background-color: #fff;
 
 	-webkit-box-shadow: 2px 4px 19px 0px rgba(50, 50, 50, 0.75);
