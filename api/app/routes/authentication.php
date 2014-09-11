@@ -154,7 +154,7 @@ $app->post('/signup', function()
 		ReportError(new Exception('Missing required "gender" property.'), 400);
 	}
 
-	$data->email  	= EscapeHtml($data->email);
+	$data->email  	 = EscapeHtml($data->email);
 	$data->password  = EscapeHtml($data->password);
 	$data->firstname = EscapeHtml($data->firstname);
 	$data->lastname  = EscapeHtml($data->lastname);
@@ -173,7 +173,14 @@ $app->post('/signup', function()
 		$file  = file_get_contents(APP_PATH . '/db/users.json');
 		$curUsers = json_decode($file, true);
 
-		// TODO: Validate that email address doesn't already exist
+
+		// Validate that email address doesn't already exist, if it does then exit try
+		foreach ($curUsers as $user) {
+			if ($user['email'] === $data->email) {
+				// should break try
+				throw new Exception();
+			}
+		}
 
 		// make new user obj
 		$newUser = (object) array(
