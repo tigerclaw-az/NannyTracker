@@ -48,9 +48,6 @@ define([], function() {
 					action = $taskBox.find('[data-action]').text(),
 					$note = $taskBox.find('[data-note]');
 
-				console.debug($note.text());
-
-
 				$containerCompleted.append(tplCT.apply({
 					action: action,
 					time: moment().format('lll'),
@@ -64,12 +61,20 @@ define([], function() {
 			$('.container-completed').delegate('[data-edit-completed]', 'click', function(e) {
 				var $target = $(e.target),
 					$completedAction = $target.parents('[data-completed-action]'),
-					$note = $completedAction.find('[data-completed-note]');
+					$note = $completedAction.find('[data-completed-note]'),
+					$time = $completedAction.find('[data-completed-time]');
+
+				// FIXME: This needs to be moved
+				$('.datepicker').datetimepicker();
 
 				$note
 					.find('p').addClass('hide')
 					.end()
-					.find('input').removeClass('hide');
+					.find('.date').removeClass('hide');
+				$time
+					.find('p').addClass('hide')
+					.end()
+					.find('.date').removeClass('hide');
 			});
 
 			$("[data-add-note]").on('click', function(e) {					
@@ -82,7 +87,9 @@ define([], function() {
 				  } else {
 					$note.addClass('hide');
 				  }
-			});		
+			});	
+
+
 		});
 	}).exit(function() {
 		// Exit from route
