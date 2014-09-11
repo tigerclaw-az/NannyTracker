@@ -5,6 +5,10 @@ define([], function() {
 
 			$('#main').append($(tpl.apply()));
 
+			$('#close').on('click', function(){
+				$('#container-login-error').addClass('hide');
+			})
+
 			$('#signup').on('submit', function(e) {
 				var email   = $('#email').val(),
 					pass    = $('#pass').val(),
@@ -40,7 +44,10 @@ define([], function() {
 					//$('#signup-sent').text(response).show();
 					//your request has been sent please check your email.
 				}).fail(function(jqXHR, status, error) {
-					//$('#signup-error').text(error).show();
+					var response = JSON.parse(jqXHR.responseText);
+						
+					$('#container-signup-error').removeClass('hide');
+					$('#signup-error').text(response.statusText).show();
 				})
 				.always(function(response) {
 					// always stuff
