@@ -113,16 +113,16 @@ function DateToTime($date)
  */
 function ReportError(Exception $e, $errorCode = 500)
 {
-	$errorCode = response_code($errorCode);
+	$error = response_code($errorCode);
 	$msg = $e->getMessage();
-	if (!$msg) $msg = get_response_text($errorCode);
+	if (!$msg) $msg = get_response_text($error);
 	LogError($e, $msg);
 
 	$appResponse = new AppResponse(null);
 	$appResponse->setStatus($errorCode);
 	$appResponse->statusText = $msg;
 
-	die(json_encode($appResponse, JSON_PRETTY_PRINT));
+	die(json_encode($appResponse));
 }
 
 function LogError(Exception $e, $msg)
