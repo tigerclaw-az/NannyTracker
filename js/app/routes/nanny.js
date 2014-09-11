@@ -1,7 +1,20 @@
 define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
-		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {			
+		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html', 'moment'], function(tplNanny, tplCT) {
+
+			$.ajax({
+				url: 'api/index.php/children',
+				type: 'GET',
+			}).done(function(data) {
+				// put children where they go
+			}).fail(function() {
+				
+			})
+			.always(function() {
+				console.debug(arguments);
+			});		
+				
 			$('#main').append($(tplNanny.apply({
 				generalNotes: 'Big blurb of text',
 				messages: [{
@@ -41,6 +54,27 @@ define([], function() {
 				}]
 			})));	
 
+			$('#button-logout').on('click', function(e) {
+				var xhr;				
+
+					xhr = $.ajax({
+						url: 'api/index.php/logout',
+						type: 'GET',
+					});
+
+					xhr
+					.done(function(data) {
+						window.location.hash = '#!/home';
+					}).fail(function() {
+						
+					})
+					.always(function() {
+						console.debug(arguments);
+					});
+
+				e.preventDefault();
+			});
+
 			$('[data-mark-complete]').on('click', function(e) {
 				var $target = $(e.target),
 					$containerCompleted = $($('#myTab .active a').attr('href')).find('.container-completed'),
@@ -70,14 +104,17 @@ define([], function() {
 				$note
 					.find('p').addClass('hide')
 					.end()
-					.find('.date').removeClass('hide');
+					.find('input').removeClass('hide');
+
 				$time
 					.find('p').addClass('hide')
 					.end()
 					.find('.date').removeClass('hide');
+
+				$completedAction.find('[data-edit-done]').removeClass('hide');
 			});
 
-			$("[data-add-note]").on('click', function(e) {					
+			$('[data-add-note]').on('click', function(e) {					
 				var $target = $(e.target)
 					$taskBox = $target.parents('[data-task-box]')
 					$note = $taskBox.find('[data-note]');
@@ -87,9 +124,7 @@ define([], function() {
 				  } else {
 					$note.addClass('hide');
 				  }
-			});	
-
-
+			});
 		});
 	}).exit(function() {
 		// Exit from route
