@@ -4,7 +4,7 @@ define([], function() {
 		require(['tpl!template/signup.html'], function(tpl) {
 
 			$('#signup').on('submit', function(e) {
-				var user    = $('#email').val(),
+				var email    = $('#email').val(),
 					pass    = $('#pass').val(),
 					first   = $('#first').val(),
 					last    = $('#last').val(),
@@ -20,7 +20,7 @@ define([], function() {
 					url: 'api/index.php/signup',
 					type: 'POST',
 					data: JSON.stringify({
-						username:  user,
+						email:  email,
 						password:  pass,
 						firstname: first,
 						lastname:  last,
