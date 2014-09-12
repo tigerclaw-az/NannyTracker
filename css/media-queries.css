@@ -1,10 +1,5 @@
-@media screen and (max-width: 991px) {
-	.marketing .featurette-image, .marketing .col-md-3 {
-		display:none !important;
-	}
-}
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 980px) {	
 	.featured-well {
-		border:none;
+		border: none;
 	}
 }
