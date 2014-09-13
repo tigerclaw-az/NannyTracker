@@ -75,12 +75,12 @@ define([], function() {
 				e.preventDefault();
 			});
 
-			$('[data-mark-complete]').on('click', function(e) {
+			$('.js-mark-complete').on('click', function(e) {
 				var $target = $(e.target),
 					$containerCompleted = $($('#myTab .active a').attr('href')).find('.container-completed'),
-					$taskBox = $target.parents('[data-task-box]'),
-					action = $taskBox.find('[data-action]').text(),
-					$note = $taskBox.find('[data-note]');
+					$actionBox = $target.parents('.js-container-actions'),
+					action = $actionBox.find('.js-action-name').text(),
+					$note = $actionBox.find('.js-action-note');
 
 				$containerCompleted.append(tplCT.apply({
 					action: action,
@@ -92,32 +92,47 @@ define([], function() {
 				$note.addClass('hide');
 			});
 
-			$('.container-completed').delegate('[data-edit-completed]', 'click', function(e) {
+			$('.js-container-completed-actions').delegate('.js-edit-completed-action', 'click', function(e) {
 				var $target = $(e.target),
-					$completedAction = $target.parents('[data-completed-action]'),
-					$note = $completedAction.find('[data-completed-note]'),
-					$time = $completedAction.find('[data-completed-time]');
+					$completedAction = $target.parents('.js-container-completed-action'),
+					$note = $completedAction.find('.js-container-completed-action-note'),
+					$time = $completedAction.find('.js-container-completed-action-time');
 
 				// FIXME: This needs to be moved
-				$('.date').datetimepicker();
+				$completedAction.find('.date').datetimepicker();
 
 				$note
-					.find('p').addClass('hide')
+					.find('.js-completed-action-note-text').addClass('hide')
 					.end()
-					.find('[data-completed-note]').removeClass('hide');
+					.find('.js-completed-action-note-input').removeClass('hide');
 
 				$time
-					.find('p').addClass('hide')
+					.find('.js-completed-action-time-text').addClass('hide')
 					.end()
-					.find('.date').removeClass('hide');
+					.find('.js-completed-action-time-input').removeClass('hide');
 
-				$completedAction.find('[data-edit-done]').removeClass('hide');
-			});
+				$completedAction.find('.js-edit-completed-action-done')
+					.removeClass('hide')
+					.on('click', function(e) {
+						$(this).addClass('hide').off();
 
-			$('[data-add-note]').on('click', function(e) {					
+						// TODO: Save edited data to Database
+						$note
+							.find('.js-completed-action-note-text').removeClass('hide')
+							.end()
+							.find('.js-completed-action-note-input').addClass('hide');
+
+						$time
+							.find('.js-completed-action-time-text').removeClass('hide')
+							.end()
+							.find('.js-completed-action-time-input').addClass('hide');						
+					});
+			});			
+
+			$('.js-add-notes').on('click', function(e) {					
 				var $target = $(e.target)
-					$taskBox = $target.parents('[data-task-box]')
-					$note = $taskBox.find('[data-note]');
+					$actionBox = $target.parents('.js-container-actions')
+					$note = $actionBox.find('.js-action-note');
 
 				  if ( $note.hasClass('hide') ) {
 					$note.removeClass('hide');

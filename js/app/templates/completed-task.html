@@ -1,27 +1,27 @@
-<div class="container-completed-action" data-completed-action>
+<div class="container-completed-action js-container-completed-action">
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 			{{action}}
 		</div>	
-		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" data-edit-completed>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 js-edit-completed-action">
 			<i class="fa fa-pencil-square-o fa-2x" ></i>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-completed-time>
-			<p>{{time}}</p>
-			<div class="hide input-group date">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 js-container-completed-action-time">
+			<p class="js-completed-action-time-text">{{time}}</p>
+			<div class="hide input-group date js-completed-action-time-input">
 				<input class="form-control" type="text" value="{{time}}">
 				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 			</div>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-completed-note>
-			{{#isNote?}}NOTE: <p>{{note}}</p><textarea class="hide" value="{{note}}" data-completed-note>{{note}}</textarea>{{/isNote?}}
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 js-container-completed-action-note">
+			{{#isNote?}}NOTE: <p class="js-completed-action-note-text">{{note}}</p><textarea class="hide js-completed-action-note-input" value="{{note}}">{{note}}</textarea>{{/isNote?}}
 		</div>
 	</div>
-	<div class="row hide" data-edit-done>
+	<div class="row hide js-edit-completed-action-done">
 		<button class="btn btn-primary">Done</button>
 	</div>
 </div>
