@@ -17,7 +17,6 @@ h1, h2, h3, h4{
 textarea {
 	width:100%;
 	height:120px;
-	margin-top:20px;
 	resize:none;
 }
 a:hover, a:focus {
