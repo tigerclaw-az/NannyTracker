@@ -5,6 +5,7 @@
 	border: 1px solid #8dc63f;
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 }
 .child-img-holder{
@@ -26,11 +27,7 @@
 .child-notes{
 	padding: 15px;
 }
-.modal-msg {
-	resize:none;
+.babysitter-message {
 	width:100%;
 	height:200px;
 }
-/*#msg-nanny {
-	margin-right: 15px !important;
-}*/
