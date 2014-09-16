@@ -27,7 +27,7 @@ $app->post('/login', function () use ($nannyDB)
 		$users = json_decode($file, true);
 
 		foreach ($users as $user) {
-			if ($user['email'] === $data->username && $user['validated'] &&
+			if ($user['email'] === $data->username && $user['active'] &&
 				password_verify($data->password, $user['password'])) {
 					$result = (object) $user;
 					continue;

@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(250) DEFAULT NULL,
   `lastLogin` datetime NOT NULL,
   `sessionId` varchar(250) DEFAULT NULL,
-  `confirmedEmail` bit(1) NOT NULL
+  `active` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
