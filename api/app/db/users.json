@@ -5,8 +5,7 @@
 		"password": "$2y$10$c7ZQnzy2Mie1MQs4hknnhu2iXvnPLpQns5Zh3UU9aZ3eSTD1OuTge",
 		"parentId": 1,
 		"nannyId": 1,
-		"active": true,
-		"expirationDate": null
+		"active": true
 	},
 	{
 		"id": 2,
@@ -14,8 +13,7 @@
 		"password": "$2y$10$IVCpcWeaxTVBw5jHFRS2RuGjAoyEs2KL0nzl/PLP.Rl9QHCRZTY9G",
 		"parentId": 1,
 		"nannyId": null,
-		"active": true,
-		"expirationDate": null
+		"active": true
 	},
 	{
 		"id": 3,
@@ -23,7 +21,6 @@
 		"password": "$2y$10$zvnCrbtKQEzZ5TVH10apfepbyePH4K9xK4qn1vxpFdEwbQilrWocC",
 		"parentId": null,
 		"nannyId": 1,
-		"active": true,
-		"expirationDate": "20140927T00:00:00"
+		"active": true
 	}
 ]
