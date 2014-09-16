@@ -1,26 +1,41 @@
-[
-	{
-		"id": 1,
-		"email": "admin@nannytracker.com",
-		"password": "$2y$10$c7ZQnzy2Mie1MQs4hknnhu2iXvnPLpQns5Zh3UU9aZ3eSTD1OuTge",
-		"parentId": 1,
-		"nannyId": 1,
-		"active": true
-	},
-	{
-		"id": 2,
-		"email": "parent@nannytracker.com",
-		"password": "$2y$10$IVCpcWeaxTVBw5jHFRS2RuGjAoyEs2KL0nzl/PLP.Rl9QHCRZTY9G",
-		"parentId": 1,
-		"nannyId": null,
-		"active": true
-	},
-	{
-		"id": 3,
-		"email": "nanny@nannytracker.com",
-		"password": "$2y$10$zvnCrbtKQEzZ5TVH10apfepbyePH4K9xK4qn1vxpFdEwbQilrWocC",
-		"parentId": null,
-		"nannyId": 1,
-		"active": true
-	}
+[  
+  {  
+    "id":1,
+    "email":"admin@nannytracker.com",
+    "password":"$2y$10$c7ZQnzy2Mie1MQs4hknnhu2iXvnPLpQns5Zh3UU9aZ3eSTD1OuTge",
+    "parentId":1,
+    "nannyId":1,
+    "active":true
+  },
+  {  
+    "id":2,
+    "email":"parent@nannytracker.com",
+    "password":"$2y$10$IVCpcWeaxTVBw5jHFRS2RuGjAoyEs2KL0nzl\/PLP.Rl9QHCRZTY9G",
+    "parentId":1,
+    "nannyId":null,
+    "active":true
+  },
+  {  
+    "id":3,
+    "email":"nanny@nannytracker.com",
+    "password":"$2y$10$zvnCrbtKQEzZ5TVH10apfepbyePH4K9xK4qn1vxpFdEwbQilrWocC",
+    "parentId":null,
+    "nannyId":1,
+    "active":true
+  },
+  {  
+  	"id": 4,
+    "email":"ejwaibel@gmail.com",
+    "password":"$2y$10$8mESxF72TuUZAwwDwpkZAuu\/E\/nHfHpuNVCnexEWj7Jz6soyPgSw.",
+    "firstname":"Erik",
+    "lastname":"Waibel",
+    "address":"123 Fake St",
+    "city":"Phoenix",
+    "state":"AZ",
+    "phone":"555-123-4598",
+    "dob":"1983-07-18",
+    "gender":"Male",
+    "active":false,
+    "hash":"ZWFmZGMxZDZiYTc4NDdkZjliMzk0MWFiYmI0YWIwNTU"
+  }
 ]
