@@ -9,64 +9,64 @@ SET time_zone = "-07:00";
 
 CREATE TABLE IF NOT EXISTS `actions` (
 `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `childAgeLow` smallint(6) NOT NULL,
-  `childAgeHigh` smallint(6) NOT NULL,
-  `notes` varchar(500) DEFAULT NULL,
-  `createdById` int(11) NOT NULL
+	`name` varchar(250) NOT NULL,
+	`childAgeLow` smallint(6) NOT NULL,
+	`childAgeHigh` smallint(6) NOT NULL,
+	`notes` varchar(500) DEFAULT NULL,
+	`createdById` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `alerts` (
 `id` int(11) NOT NULL,
-  `nannyId` int(11) NOT NULL,
-  `message` varchar(512) NOT NULL,
-  `submittedDate` datetime NOT NULL
+	`nannyId` int(11) NOT NULL,
+	`message` varchar(512) NOT NULL,
+	`submittedDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `child` (
 `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `birthday` datetime NOT NULL,
-  `notes` varchar(2500) DEFAULT NULL,
-  `isCare` bit(1) NOT NULL
+	`name` varchar(250) NOT NULL,
+	`birthday` datetime NOT NULL,
+	`notes` varchar(2500) DEFAULT NULL,
+	`isCare` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `child_actions` (
 `id` int(11) NOT NULL,
-  `childId` int(11) NOT NULL,
-  `actionId` int(11) NOT NULL
+	`childId` int(11) NOT NULL,
+	`actionId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `child_to_parent` (
 `id` int(11) NOT NULL,
-  `childId` int(11) NOT NULL,
-  `parentId` int(11) NOT NULL
+	`childId` int(11) NOT NULL,
+	`parentId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `nanny` (
 `id` int(11) NOT NULL,
-  `payRate` decimal(10,0) DEFAULT NULL,
-  `hireDate` datetime NOT NULL,
-  `startDate` datetime DEFAULT NULL,
-  `endDate` datetime DEFAULT NULL,
-  `hasAccepted` bit(1) NOT NULL
+	`payRate` decimal(10,0) DEFAULT NULL,
+	`hireDate` datetime NOT NULL,
+	`startDate` datetime DEFAULT NULL,
+	`endDate` datetime DEFAULT NULL,
+	`hasAccepted` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `nanny_log` (
 `id` int(11) NOT NULL,
-  `actionId` int(11) NOT NULL,
-  `nannyId` int(11) NOT NULL,
-  `actionStartedDate` datetime DEFAULT NULL,
-  `actionCompletedDate` datetime NOT NULL,
-  `childId` int(11) NOT NULL,
-  `notes` varchar(2500) DEFAULT NULL,
-  `lastModifiedDate` datetime NOT NULL
+	`actionId` int(11) NOT NULL,
+	`nannyId` int(11) NOT NULL,
+	`actionStartedDate` datetime DEFAULT NULL,
+	`actionCompletedDate` datetime NOT NULL,
+	`childId` int(11) NOT NULL,
+	`notes` varchar(2500) DEFAULT NULL,
+	`lastModifiedDate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `nanny_to_parent` (
 `id` int(11) NOT NULL,
-  `nannyId` int(11) NOT NULL,
-  `parentId` int(11) NOT NULL
+	`nannyId` int(11) NOT NULL,
+	`parentId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `parent` (
@@ -75,18 +75,19 @@ CREATE TABLE IF NOT EXISTS `parent` (
 
 CREATE TABLE IF NOT EXISTS `user` (
 `id` int(11) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `birthday` datetime NOT NULL,
-  `parentId` int(11) DEFAULT NULL,
-  `nannyId` int(11) DEFAULT NULL,
-  `gender` varchar(2) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `address` varchar(250) DEFAULT NULL,
-  `phone` varchar(250) DEFAULT NULL,
-  `password` varchar(250) DEFAULT NULL,
-  `lastLogin` datetime NOT NULL,
-  `sessionId` varchar(250) DEFAULT NULL,
-  `active` bit(1) NOT NULL
+	`name` varchar(250) NOT NULL,
+	`birthday` datetime NOT NULL,
+	`parentId` int(11) DEFAULT NULL,
+	`nannyId` int(11) DEFAULT NULL,
+	`gender` varchar(2) NOT NULL,
+	`email` varchar(250) NOT NULL,
+	`address` varchar(250) DEFAULT NULL,
+	`phone` varchar(250) DEFAULT NULL,
+	`password` varchar(250) DEFAULT NULL,
+	`lastLogin` datetime NOT NULL,
+	`sessionId` varchar(250) DEFAULT NULL,
+	`active` bit(1) NOT NULL,
+	`hash` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
