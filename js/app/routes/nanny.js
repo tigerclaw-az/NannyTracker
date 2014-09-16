@@ -2,12 +2,16 @@ define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
-
+			var parentId = sessionStorage.getItem("parentId")
 			$.ajax({
-				url: 'api/index.php/children',
+				url: 'api/index.php/parents/:' + parentId + '/children',//should be the parent that owns this nanny's id
 				type: 'GET',
 			}).done(function(data) {
-				// put children where they go
+				console.log(data); // should be the children that belong to the parent that this nanny belongs to
+				// $('#main').append($(tplNanny.apply({
+					// then the children has is be here as 
+					//data
+				// })));	
 			}).fail(function() {
 				
 			})
