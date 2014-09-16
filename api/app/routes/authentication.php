@@ -92,29 +92,29 @@ $app->post('/reset', function()
 
 	$email = EscapeHtml($data->username);
 
-	try {
-		// Add email, hash, and expires to JSON file (resetPassword.json)
+	try {		
 		//read json
 		$file  = file_get_contents(APP_PATH . '/db/resetPassword.json');
 		$userInfoAry = json_decode($file, true);
 
+		$hash = rtrim(base64_encode(md5(microtime())),"=")
 		// make new info obj
 		$userInfo = (object) array(
 			'email' => $email,
-			'hash' => rtrim(base64_encode(md5(microtime())),"="),
-			'expires' => 'never'
+			'hash' => $hash
 		);
 
 		//insert into json
 		array_push($userInfoAry, $userInfo);
 
+		// Add email and hash to JSON file (resetPassword.json)
 		$result = json_encode($userInfoAry);
 		file_put_contents(APP_PATH.'/db/resetPassword.json', $result);
 
 		/// Send reset email to user 
-	    $from = 'Nanny Tracker'; // sender
-	    $subject = 'Nanny Tracker password reset';
-	    $message = "please click the link below to reset your password\n\n<a href='nannytracker.com/reset'>Reset password</a>";
+	    $from = 'support@nannytracker.com'; // sender
+	    $subject = 'Nanny Tracker - Reset Password';
+	    $message = "Please click the link below to reset your password\n\n<a href='nannytracker.com/reset?email=$email&hash=$hash'>Reset password</a>";
 	    $message = wordwrap($message, 70);
 
 	    mail($email,$subject,$message,"From: $from\n");
