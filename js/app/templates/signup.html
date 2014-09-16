@@ -8,29 +8,29 @@
 	<form id="signup" role="form">
 	  <div class="row form-group">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		  <input type="email" class="form-control" id="email" placeholder="Email">
+		  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		  <input type="password" class="form-control" id="pass" placeholder="Password">
-		</div>
-	  </div>
-	  <div class="row form-group">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		  <input type="text" class="form-control" id="first" placeholder="First Name">
-		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		  <input type="text" class="form-control" id="last" placeholder="Last Name">
+		  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 		</div>
 	  </div>
 	  <div class="row form-group">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		  <input type="text" class="form-control" id="address" placeholder="Address">
+		  <input type="text" class="form-control" id="first-name" name="firstName" placeholder="First Name">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		  <input type="text" class="form-control" id="last-name" name="lastName" placeholder="Last Name">
+		</div>
+	  </div>
+	  <div class="row form-group">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		  <input type="text" class="form-control" id="address" name="address" placeholder="Address">
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-		  <input type="text" class="form-control" id="city" placeholder="City / Town">
+		  <input type="text" class="form-control" id="city" name="city" placeholder="City / Town">
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-		  <select class="form-group" id="state">
+		  <select class="form-group" id="state" name="state">
 			<option>State</option>
 			<option>AZ</option>
 			<option>TX</option>
@@ -41,16 +41,16 @@
 	  </div>
 	  <div class="row form-group">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		  <input type="text" class="form-control" id="phone" placeholder="Phone">
+		  <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
 		</div>
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-		  <input type="date" class="form-control" id="dob" placeholder="Date of Birth">
+		  <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
 		</div>
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-		  <select class="form-group" id="gender">
-			<option>Gender</option>
-			<option>Male</option>
-			<option>Female</option>
+		  <select class="form-group" id="gender" name="gender">
+			<option value="">Gender</option>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
 		  </select>
 		</div>
 	  </div>

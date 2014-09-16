@@ -10,16 +10,16 @@ define([], function() {
 			})
 
 			$('#signup').on('submit', function(e) {
-				var email   = $('#email').val(),
-					pass    = $('#pass').val(),
-					first   = $('#first').val(),
-					last    = $('#last').val(),
+				var email = $('#email').val(),
+					password = $('#password').val(),
+					first = $('#first-name').val(),
+					last = $('#last-name').val(),
 					address = $('#address').val(),
-					city    = $('#city').val(),
-					state   = $('#state').val(),
-					phone   = $('#phone').val(),
-					dob     = $('#dob').val(),
-					gender  = $('#gender').val(),
+					city = $('#city').val(),
+					state = $('#state').val(),
+					phone = $('#phone').val(),
+					dob = $('#dob').val(),
+					gender = $('#gender').val(),
 					xhr;
 
 				xhr = $.ajax({
@@ -27,7 +27,7 @@ define([], function() {
 					type: 'POST',
 					data: JSON.stringify({
 						email:     email,
-						password:  pass,
+						password:  password,
 						firstname: first,
 						lastname:  last,
 						address:   address,

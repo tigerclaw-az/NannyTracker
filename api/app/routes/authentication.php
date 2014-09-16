@@ -97,7 +97,8 @@ $app->post('/reset', function()
 		$file  = file_get_contents(APP_PATH . '/db/resetPassword.json');
 		$userInfoAry = json_decode($file, true);
 
-		$hash = rtrim(base64_encode(md5(microtime())),"=")
+		$hash = rtrim(base64_encode(md5(microtime())),"=");
+
 		// make new info obj
 		$userInfo = (object) array(
 			'email' => $email,
@@ -183,6 +184,7 @@ $app->post('/signup', function()
 		}
 
 		// make new user obj
+		$hash = rtrim(base64_encode(md5(microtime())),"=");
 		$newUser = (object) array(
 			'email'     => $data->email,
 			'password'  => password_hash($data->password, PASSWORD_DEFAULT),
@@ -194,8 +196,13 @@ $app->post('/signup', function()
 			'phone'     => $data->phone,
 			'dob'       => $data->dob,
 			'gender'    => $data->gender,
-			'validated' => false
+			'active' 	=> false,
+			'hash'		=> $hash
 		);
+
+		// TODO: Anyone that signs up is automatically a 'parent', which means
+		//		a new row needs to be added to the 'parent' table and the newly
+		//		created ID will be used for the 'parentId' in the 'users' table.
 
 		//insert into json
 		array_push($curUsers, $newUser);
@@ -203,12 +210,10 @@ $app->post('/signup', function()
 		// Add new user with new info to JSON file (users.json)		
 		file_put_contents(APP_PATH . '/db/users.json', json_encode($curUsers));
 
-		/// Send confirmation email to user 
-		$hash = rtrim(base64_encode(md5(microtime())),"=");
-		// TODO: How do we implement confirmation?
+		/// Send confirmation email to user 				
 	    $from = 'support@nannytracker.com'; // sender
-	    $subject = 'Nanny Tracker account confirmation';
-	    $message = "Please click the link below to confirm your account\n\n<a href='nannytracker.com/index.php/api/confirm/$hash'>Confirm</a>";
+	    $subject = 'Nanny Tracker - Signup Confirmation';
+	    $message = "Please click the link below to confirm your account:\n\n<a href='nannytracker.com/verify?email=$email&hash=$hash'>Confirm</a>";
 	    $message = wordwrap($message, 70);
 
 	    mail($email,$subject,$message,"From: $from\n");
