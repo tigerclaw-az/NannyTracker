@@ -2,16 +2,13 @@ define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
-			var parentId = sessionStorage.getItem("parentId")
 			$.ajax({
-				url: 'api/index.php/parents/:' + parentId + '/children',//should be the parent that owns this nanny's id
+				url: 'api/index.php/parents/' + sessionStorage.getItem("assocParentId") + '/children',//should be the parent that owns this nanny's id
 				type: 'GET',
 			}).done(function(data) {
-				console.log(data); // should be the children that belong to the parent that this nanny belongs to
-				// $('#main').append($(tplNanny.apply({
-					// then the children has is be here as 
-					//data
-				// })));	
+				console.log(data.data[0]); // should be the children that belong to the parent that this nanny belongs to
+				// var output = Mustache.to_html(tplNanny, data[0]);
+				// $('#main').append(output);	
 			}).fail(function() {
 				
 			})
