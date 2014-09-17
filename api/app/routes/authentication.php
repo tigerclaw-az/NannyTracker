@@ -128,8 +128,6 @@ $app->post('/reset', function()
 
 $app->post('/signup', function()
 {
-	// i think this need to be seperated into 2 apis
-	// one for sending email and once you get back to site from email we need to do all the stuff i have below:
 	$data = GetHTTPData();
 	$result = null;
 
