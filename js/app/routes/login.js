@@ -46,8 +46,10 @@ define([], function() {
 					.done(function(response) {
 						var user = response.data[0];
 
-						if (user.isParent) {
+						if (user.parentId) {
 							window.location.hash = '#!/parent';
+							console.log(user.id);
+							sessionStorage.setItem("parentId", user.id);
 						} else {
 							window.location.hash = '#!/nanny';
 							sessionStorage.setItem("assocParentId", user.assocParentId);
