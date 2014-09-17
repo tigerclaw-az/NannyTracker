@@ -1,3 +1,20 @@
 .signup-header {
 	margin-top: 40px;
 }
+
+p {
+	margin-bottom: 30px;
+}
+
+.thumbnail {
+	padding: 12px;
+	background-color: #F5F5F5;
+}
+
+label {
+	color: #8F8F8F;
+}
+
+.form-control {
+	margin-bottom: 10px;
+}
