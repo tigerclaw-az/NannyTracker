@@ -2,6 +2,11 @@ define([], function() {
 	Path.map("#!/nanny").to(function() {
 	}).enter(function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
+
+			var isParent = JSON.parse(sessionStorage.getItem("isParent"));
+
+			isParent ? window.location.hash = '#!/parent' : false;
+
 			$.ajax({
 				url: 'api/index.php/parents/' + sessionStorage.getItem("assocParentId") + '/children',//should be the parent that owns this nanny's id
 				type: 'GET',
@@ -56,22 +61,28 @@ define([], function() {
 			})));	
 
 			$('#button-logout').on('click', function(e) {
+				sessionStorage.clear();
+				for(var i = 0; i <= sessionStorage.length; i++) {
+				    var key = sessionStorage.key(i);
+			   		sessionStorage.removeItem(key);
+				}
+
 				var xhr;				
 
-					xhr = $.ajax({
-						url: 'api/index.php/logout',
-						type: 'GET',
-					});
+				xhr = $.ajax({
+					url: 'api/index.php/logout',
+					type: 'GET',
+				});
 
-					xhr
-					.done(function(data) {
-						window.location.hash = '#!/home';
-					}).fail(function() {
-						
-					})
-					.always(function() {
-						console.debug(arguments);
-					});
+				xhr
+				.done(function(data) {
+					window.location.hash = '#!/home';
+				}).fail(function() {
+					
+				})
+				.always(function() {
+					console.debug(arguments);
+				});
 
 				e.preventDefault();
 			});

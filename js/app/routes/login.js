@@ -50,9 +50,11 @@ define([], function() {
 							window.location.hash = '#!/parent';
 							console.log(user.id);
 							sessionStorage.setItem("parentId", user.id);
+							sessionStorage.setItem("isParent", true);
 						} else {
 							window.location.hash = '#!/nanny';
 							sessionStorage.setItem("assocParentId", user.assocParentId);
+							sessionStorage.setItem("isParent", false);
 						}
 					}).fail(function(jqXHR, status, error) {
 						var response = JSON.parse(jqXHR.responseText);
