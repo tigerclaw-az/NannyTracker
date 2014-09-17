@@ -21,6 +21,7 @@
     "password":"$2y$10$zvnCrbtKQEzZ5TVH10apfepbyePH4K9xK4qn1vxpFdEwbQilrWocC",
     "parentId":null,
     "nannyId":1,
+    "assocParentId": 2,
     "active":true
   },
   {  

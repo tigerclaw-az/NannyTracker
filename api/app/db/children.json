@@ -1,38 +1,41 @@
 [
 	{
 		"id": 1,
+		"assocParentId": 2,
 		"name": "child 1",
 		"dob": "some date",
 		"gender": "m",
 		"tasks": [
-			{"name": "feed", "time": },
-			{"name": "bath", "time": },
-			{"name": "change", "time": },
-			{"name": "nap", "time": },
-		],
+			{"name": "feed"},
+			{"name": "bath"},
+			{"name": "change"},
+			{"name": "nap"}
+		]
 	},
 	{
 		"id": 2,
+		"assocParentId": 1,
 		"name": "child 2",
 		"dob": "some date",
 		"gender": "f",
 		"tasks": [
-			{"name": "feed", "time": },
-			{"name": "bath", "time": },
-			{"name": "change", "time": },
-			{"name": "nap", "time": },
-		],
+			{"name": "feed"},
+			{"name": "bath"},
+			{"name": "change"},
+			{"name": "nap"}
+		]
 	},
 	{
 		"id": 3,
+		"assocParentId": 2,
 		"name": "child 3",
 		"dob": "some date",
 		"gender": "m",
 		"tasks": [
-			{"name": "feed", "time": },
-			{"name": "bath", "time": },
-			{"name": "change", "time": },
-			{"name": "nap", "time": },
-		],
-	},
+			{"name": "feed"},
+			{"name": "bath"},
+			{"name": "change"},
+			{"name": "nap"}
+		]
+	}
 ]

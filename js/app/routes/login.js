@@ -50,7 +50,7 @@ define([], function() {
 							window.location.hash = '#!/parent';
 						} else {
 							window.location.hash = '#!/nanny';
-							sessionStorage.setItem("parentId", user.parentId);
+							sessionStorage.setItem("assocParentId", user.assocParentId);
 						}
 					}).fail(function(jqXHR, status, error) {
 						var response = JSON.parse(jqXHR.responseText);
