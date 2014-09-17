@@ -3,62 +3,49 @@ define([], function() {
 	}).enter(function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
 
-			var isParent = JSON.parse(sessionStorage.getItem("isParent"));
+			// FIXME: Should probably check if user is a Nanny before redirecting
+			// var isNanny = JSON.parse(sessionStorage.getItem("isNanny"));
+			var isNanny = true;
+			if (!isNanny) {
+				window.location.hash = '#!/parent';
+			}
 
-			isParent ? window.location.hash = '#!/parent' : false;
-
-			$.ajax({
-				url: 'api/index.php/parents/' + sessionStorage.getItem("assocParentId") + '/children',//should be the parent that owns this nanny's id
-				type: 'GET',
-			}).done(function(data) {
-				console.log(data.data[0]); // should be the children that belong to the parent that this nanny belongs to
-				// var output = Mustache.to_html(tplNanny, data[0]);
-				// $('#main').append(output);	
-			}).fail(function() {
-				
-			})
-			.always(function() {
-				console.debug(arguments);
-			});		
-				
-			$('#main').append($(tplNanny.apply({
-				generalNotes: 'Big blurb of text',
-				messages: [{
-					message: 'Hey!',
-					time: moment().subtract(3, 'days').format('lll')
-				}, {
-					message: 'Uh-oh',
-					time: moment().format('lll')
-				}],
-				childrenTabs: [{
-					'isActive?': true,
-					name: 'Brianna'
-				}, {
-					name: 'Iris'
-				}],
-				children: [{
-					'isActive?': true,
-					name: 'Brianna',
-					actions: [{
-						action: 'Take Bath'
+			var notesDfd = $.Deferred().resolve('This is a test'),
+				messagesDfd = $.Deferred().resolve([{
+						message: 'Hey!',
+						time: moment().subtract(3, 'days').format('lll')
 					}, {
-						action: 'Feed Dog'
-					}],
-					completedActions: [{
-						action: 'Take Bath',
+						message: 'Uh-oh',
 						time: moment().format('lll')
-					}]
-				}, {
-					name: 'Iris',
-					actions: [{
-						action: 'Change Diaper'
-					}, {
-						action: 'Dinner'
-					}, {
-						action: 'Bath'
-					}]					
-				}]
-			})));	
+					}]),
+				childrenDfd = $.ajax({
+					url: 'api/index.php/parents/' + sessionStorage.getItem("assocParentId") + '/children',//should be the parent that owns this nanny's id
+					type: 'GET',
+				});
+
+			// Wait for all AJAX calls to complete
+			$.when(notesDfd, messagesDfd, childrenDfd)
+				.done(function(notes, messages, children) {
+					var tabs = [];
+
+					children.forEach(function(obj) {
+						tabs.push({
+							'isActive?': true,
+							name: obj.name
+						});
+					});
+					$('#main').append($(tplNanny.apply({
+						generalNotes: notes,
+						messages: messages,
+						childrenTabs: tabs,
+						children: children
+					})));
+				}).fail(function() {
+
+				})
+				.always(function() {
+
+				});
 
 			$('#button-logout').on('click', function(e) {
 				sessionStorage.clear();
@@ -67,7 +54,7 @@ define([], function() {
 			   		sessionStorage.removeItem(key);
 				}
 
-				var xhr;				
+				var xhr;
 
 				xhr = $.ajax({
 					url: 'api/index.php/logout',
@@ -78,7 +65,7 @@ define([], function() {
 				.done(function(data) {
 					window.location.hash = '#!/home';
 				}).fail(function() {
-					
+
 				})
 				.always(function() {
 					console.debug(arguments);
@@ -137,11 +124,11 @@ define([], function() {
 						$time
 							.find('.js-completed-action-time-text').removeClass('hide')
 							.end()
-							.find('.js-completed-action-time-input').addClass('hide');						
+							.find('.js-completed-action-time-input').addClass('hide');
 					});
-			});			
+			});
 
-			$('.js-add-notes').on('click', function(e) {					
+			$('.js-add-notes').on('click', function(e) {
 				var $target = $(e.target)
 					$actionBox = $target.parents('.js-container-actions')
 					$note = $actionBox.find('.js-action-note');
