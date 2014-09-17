@@ -4,16 +4,18 @@ define([], function() {
 		require(['tpl!template/parent.html'], function(tpl) {
 
 		$.ajax({
-			url: 'api/index.php/children',
+			url: 'api/index.php/parents/' + sessionStorage.getItem("parentId") + '/children',//should be the parent that owns this nanny's id
 			type: 'GET',
 		}).done(function(data) {
-			// put children where they go
+			console.log(data.data[0]); // should be the children that belong to the parent that this nanny belongs to
+			// var output = Mustache.to_html(tplNanny, data[0]);
+			// $('#main').append(output);	
 		}).fail(function() {
 			
 		})
 		.always(function() {
 			console.debug(arguments);
-		});
+		});		
 
 		$('#logout').on('click', function(e) {
 				var xhr;				
