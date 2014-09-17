@@ -4,67 +4,62 @@ define([], function() {
 		require(['tpl!template/parent.html'], function(tpl) {
 
 			var isParent = JSON.parse(sessionStorage.getItem("isParent"));
-
-			isParent ? true : window.location.hash = '#!/nanny';
+			if (!isParent) {
+				window.location.hash = '#!/nanny';
+			}
 
 			$.ajax({
 				url: 'api/index.php/parents/' + sessionStorage.getItem("parentId") + '/children',//should be the parent that owns this nanny's id
 				type: 'GET',
 			}).done(function(data) {
-				console.log(data.data[0]); // should be the children that belong to the parent that this nanny belongs to
-				// var output = Mustache.to_html(tplNanny, data[0]);
-				// $('#main').append(output);	
+				$('#main').append($(tpl.apply({
+					messages: [{
+						message: 'Hey!',
+						time: moment().subtract(3, 'days').format('lll')
+					}, {
+						message: 'Uh-oh',
+						time: moment().format('lll')
+					}],
+					completedActions: [{
+						action: 'Nap',
+						startTime: '1:00',
+						endTime: '5:00',
+						notes: 'The child slept well!'
+					}]
+
+				})));
 			}).fail(function() {
-				
+
 			})
 			.always(function() {
 				console.debug(arguments);
-			});		
+			});
 
 			$('#logout').on('click', function(e) {
+				var i = 0,
+					key;
+
 				sessionStorage.clear();
-				for(var i = 0; i <= sessionStorage.length; i++) {
-				    var key = sessionStorage.key(i);
+
+				for (i = 0; i <= sessionStorage.length; i++) {
+				    key = sessionStorage.key(i);
 			   		sessionStorage.removeItem(key);
 				}
 
-				var xhr;				
-
-				xhr = $.ajax({
+				$.ajax({
 					url: 'api/index.php/logout',
 					type: 'GET',
-				});
-
-				xhr
-				.done(function(data) {
+				}).done(function(data) {
 					window.location.hash = '#!/home';
 				}).fail(function() {
-					
+
 				})
 				.always(function() {
-					console.debug(arguments);
+
 				});
 
 				e.preventDefault();
 			});
-			
-			$('#main').append($(tpl.apply({
-				messages: [{
-					message: 'Hey!',
-					time: moment().subtract(3, 'days').format('lll')
-				}, {
-					message: 'Uh-oh',
-					time: moment().format('lll')
-				}],
-				completedActions: [{
-					action: 'Nap',
-					startTime: '1:00',
-					endTime: '5:00',
-					notes: 'The child slept well!'
-				}]
-
-			})));
-
 		});
 	}).exit(function() {
 		// Exit from route
