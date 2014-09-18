@@ -28,7 +28,8 @@
 }
 .container-completed{
 	min-height: 400px;
-	max-height: 700px
+	max-height: 660px;
+	overflow-y: auto;
 }
 
 .relative{
@@ -42,7 +43,7 @@
 	left: 100px;
 }
 .children-actions {
-	max-height: 700px;
+	max-height: 660px;
 	overflow-y: auto;
 }
 /*end nanny styles*/
