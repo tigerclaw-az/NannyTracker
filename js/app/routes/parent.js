@@ -1,16 +1,15 @@
 define([], function() {
-	Path.map("#!/parent").to(function(){
+	Path.map("#!/parent").to(function() {
+		if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
+			window.location.hash = '#!/login';
+		}		
 	}).enter(function() {
-		require(['tpl!template/parent.html'], function(tpl) {
-			if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
-				window.location.hash = '#!/login';
-			}
-			
+		require(['tpl!template/parent.html'], function(tpl) {		
 			var isParent = JSON.parse(sessionStorage.getItem("isParent"));
 			if (!isParent) {
 				window.location.hash = '#!/nanny';
 			}
-
+			
 			$.ajax({
 				url: 'api/index.php/parents/' + sessionStorage.getItem("parentId") + '/children',//should be the parent that owns this nanny's id
 				type: 'GET',
@@ -38,7 +37,7 @@ define([], function() {
 				console.debug(arguments);
 			});
 
-			$('#logout').on('click', function(e) {
+			$('#main').delegate('#button-logout', 'click', function(e) {
 				var i = 0,
 					key;
 

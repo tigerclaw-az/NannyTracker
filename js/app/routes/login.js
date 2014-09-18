@@ -4,13 +4,13 @@ define([], function() {
 		require(['tpl!template/login.html'], function(tpl){
 			$('#main').append($(tpl.apply()));
 
-			$('header').hidden();
+			$('header').hide();
 			$('#main').addClass('transparent-background');
-			$('footer').hidden();
+			$('footer').hide();
 
 			$('#forgot-password').on('click', function(){
 				if($(this).is(':checked')){
-					$('#password').hidden();
+					$('#password').hide();
 					$('#button-login').addClass('hidden');
 					$('#button-reset').removeClass('hidden');
 				}else{

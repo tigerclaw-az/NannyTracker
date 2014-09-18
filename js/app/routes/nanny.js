@@ -22,7 +22,7 @@ define([], function() {
 						time: moment().format('lll')
 					}]),
 					childrenDfd = $.ajax({
-						url: 'api/index.php/parents/' + sessionStorage.getItem("assocParentId") + '/children',//should be the parent that owns this nanny's id
+						url: 'api/index.php/parents/' + sessionStorage.getItem("parentId") + '/children',//should be the parent that owns this nanny's id
 						type: 'GET',
 					});
 
