@@ -1,17 +1,17 @@
 define([], function() {
 	Path.map("#!/nanny").to(function() {
+		if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
+			window.location.hash = '#!/login';
+		}
+
+		// FIXME: Should probably check if user is a Nanny before redirecting
+		var isNanny = !JSON.parse(sessionStorage.getItem("isParent"));
+		if (!isNanny) {
+			window.location.hash = '#!/parent';
+		}
 	}).enter(function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
-
-			if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
-				window.location.hash = '#!/login';
-			}
-
-			// FIXME: Should probably check if user is a Nanny before redirecting
-			var isNanny = !JSON.parse(sessionStorage.getItem("isParent"));
-			if (!isNanny) {
-				window.location.hash = '#!/parent';
-			}
+			var $mainContainer = $('#main');			
 
 			var notesDfd = $.Deferred().resolve('This is a test'),
 				messagesDfd = $.Deferred().resolve([{
@@ -38,7 +38,7 @@ define([], function() {
 						});
 					});
 
-					$('#main').append($(tplNanny.apply({
+					$mainContainer.append($(tplNanny.apply({
 						generalNotes: notes,
 						messages: messages,
 						childrenTabs: tabs,
@@ -54,7 +54,7 @@ define([], function() {
 
 				});			
 
-			$('#button-logout').on('click', function(e) {
+			$('#main').delegate('#button-logout', 'click', function(e) {
 				var i = 0,
 					key;
 
@@ -81,7 +81,7 @@ define([], function() {
 				e.preventDefault();
 			});
 
-			$('#main').delegate('.js-mark-complete', 'click', function(e) {
+			$mainContainer.delegate('.js-mark-complete', 'click', function(e) {
 				var $target = $(e.target),
 					$containerCompleted = $($('#children-tabs .active a').attr('href')).find('.container-completed'),
 					$actionBox = $target.parents('.js-container-actions'),
@@ -98,7 +98,7 @@ define([], function() {
 				$note.addClass('hidden');
 			});
 
-			$('#main').delegate('.js-edit-completed-action', 'click', function(e) {
+			$mainContainer.delegate('.js-edit-completed-action', 'click', function(e) {
 				var $target = $(e.target),
 					$completedAction = $target.parents('.js-container-completed-action'),
 					$note = $completedAction.find('.js-container-completed-action-note'),
@@ -135,7 +135,7 @@ define([], function() {
 					});
 			});
 
-			$('.js-add-notes').on('click', function(e) {
+			$mainContainer.delegate('.js-add-notes', 'click', function(e) {
 				var $target = $(e.target)
 					$actionBox = $target.parents('.js-container-actions')
 					$note = $actionBox.find('.js-action-note');
