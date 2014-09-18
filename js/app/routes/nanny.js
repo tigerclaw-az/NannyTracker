@@ -81,9 +81,9 @@ define([], function() {
 				e.preventDefault();
 			});
 
-			$('.js-mark-complete').on('click', function(e) {
+			$('#main').delegate('.js-mark-complete', 'click', function(e) {
 				var $target = $(e.target),
-					$containerCompleted = $($('#myTab .active a').attr('href')).find('.container-completed'),
+					$containerCompleted = $($('#children-tabs .active a').attr('href')).find('.container-completed'),
 					$actionBox = $target.parents('.js-container-actions'),
 					action = $actionBox.find('.js-action-name').text(),
 					$note = $actionBox.find('.js-action-note');
@@ -98,7 +98,7 @@ define([], function() {
 				$note.addClass('hidden');
 			});
 
-			$('.js-container-completed-actions').delegate('.js-edit-completed-action', 'click', function(e) {
+			$('#main').delegate('.js-edit-completed-action', 'click', function(e) {
 				var $target = $(e.target),
 					$completedAction = $target.parents('.js-container-completed-action'),
 					$note = $completedAction.find('.js-container-completed-action-note'),

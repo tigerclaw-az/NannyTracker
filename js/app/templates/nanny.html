@@ -6,7 +6,7 @@
 
 <section class="content">	
 	<!-- Nav tabs -->
-	<ul class="nav nav-tabs" role="tablist" id="myTab">
+	<ul class="nav nav-tabs" role="tablist" id="message-tabs">
 	  <li class="active"><a href="#general-notes" role="tab" data-toggle="tab">General Notes</a></li>
 	  <li><a href="#message-center" role="tab" data-toggle="tab">Message Center</a></li>
 	</ul>
@@ -52,7 +52,7 @@
 		<div class="col-lg-12">
 			<div class="children">
 				<!-- Nav tabs -->
-				<ul class="nav nav-tabs js-children-tabs" id="myTab" role="tablist">
+				<ul class="nav nav-tabs js-children-tabs" id="children-tabs" role="tablist">
 					{{#childrenTabs}}
 				    	<li><a href="#{{name}}" data-toggle="tab" role="tab">{{name}}</a></li>			    
 					{{/childrenTabs}}
@@ -63,7 +63,7 @@
 					{{#children}}
 				    <div class="tab-pane fade in" id="{{name}}">
 				    	<div class="row">
-					    	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					    	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 children-actions">
 					    		{{#actions}}
 								<div class="well js-container-actions">
 									<div class="row">
