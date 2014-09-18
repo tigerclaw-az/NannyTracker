@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `alerts` (
 CREATE TABLE IF NOT EXISTS `child` (
 `id` int(11) NOT NULL,
 	`name` varchar(250) NOT NULL,
-	`birthday` datetime NOT NULL,
+	`dateOfBirth` datetime NOT NULL,
 	`notes` varchar(2500) DEFAULT NULL,
 	`isCare` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `parent` (
 CREATE TABLE IF NOT EXISTS `user` (
 `id` int(11) NOT NULL,
 	`name` varchar(250) NOT NULL,
-	`birthday` datetime NOT NULL,
+	`dateOfBirth` datetime NOT NULL,
 	`parentId` int(11) DEFAULT NULL,
 	`nannyId` int(11) DEFAULT NULL,
 	`gender` varchar(2) NOT NULL,
