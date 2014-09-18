@@ -32,8 +32,6 @@ define([], function() {
 					var children = childrenResult[0].data[0],
 						tabs = [];
 
-						console.log(children);
-
 					children.forEach(function(obj) {
 						tabs.push({
 							name: obj.name
@@ -47,7 +45,8 @@ define([], function() {
 						children: children
 					})));
 
-					$('.js-children-tabs li:first-child a').click();
+					// $('.js-children-tabs li:first-child a').click();
+					$('.children a[data-toggle="tab"]:first').tab('show');
 				}).fail(function() {
 
 				})
