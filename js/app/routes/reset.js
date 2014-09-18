@@ -6,9 +6,9 @@ define([], function() {
 		require(['tpl!template/reset.html'], function(tpl){
 			$('#main').append($(tpl.apply()));
 
-			$('header').hide();
+			$('header').hidden();
 			$('#main').addClass('transparent-background');
-			$('footer').hide();		
+			$('footer').hidden();		
 		});
 	}).exit(function() {
 		// Exit from route

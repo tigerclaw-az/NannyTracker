@@ -4,24 +4,24 @@ define([], function() {
 		require(['tpl!template/login.html'], function(tpl){
 			$('#main').append($(tpl.apply()));
 
-			$('header').hide();
+			$('header').hidden();
 			$('#main').addClass('transparent-background');
-			$('footer').hide();
+			$('footer').hidden();
 
 			$('#forgot-password').on('click', function(){
 				if($(this).is(':checked')){
-					$('#password').hide();
-					$('#button-login').addClass('hide');
-					$('#button-reset').removeClass('hide');
+					$('#password').hidden();
+					$('#button-login').addClass('hidden');
+					$('#button-reset').removeClass('hidden');
 				}else{
 					$('#password').show();
-					$('#button-login').removeClass('hide');
-					$('#button-reset').addClass('hide');
+					$('#button-login').removeClass('hidden');
+					$('#button-reset').addClass('hidden');
 				}
 			});
 
 			$('#close').on('click', function(){
-				$('#container-login-error').addClass('hide');
+				$('#container-login-error').addClass('hidden');
 			})
 
 			$('#login').on('submit', function(e) {
@@ -61,7 +61,7 @@ define([], function() {
 					}).fail(function(jqXHR, status, error) {
 						var response = JSON.parse(jqXHR.responseText);
 						
-						$('#container-login-error').removeClass('hide');
+						$('#container-login-error').removeClass('hidden');
 						$('#login-error').text(response.statusText);
 					})
 					.always(function() {

@@ -96,7 +96,7 @@ define([], function() {
 					note: $note.val()
 				}));
 
-				$note.addClass('hide');
+				$note.addClass('hidden');
 			});
 
 			$('.js-container-completed-actions').delegate('.js-edit-completed-action', 'click', function(e) {
@@ -109,30 +109,30 @@ define([], function() {
 				$completedAction.find('.date').datetimepicker();
 
 				$note
-					.find('.js-completed-action-note-text').addClass('hide')
+					.find('.js-completed-action-note-text').addClass('hidden')
 					.end()
-					.find('.js-completed-action-note-input').removeClass('hide');
+					.find('.js-completed-action-note-input').removeClass('hidden');
 
 				$time
-					.find('.js-completed-action-time-text').addClass('hide')
+					.find('.js-completed-action-time-text').addClass('hidden')
 					.end()
-					.find('.js-completed-action-time-input').removeClass('hide');
+					.find('.js-completed-action-time-input').removeClass('hidden');
 
 				$completedAction.find('.js-edit-completed-action-done')
-					.removeClass('hide')
+					.removeClass('hidden')
 					.on('click', function(e) {
-						$(this).addClass('hide').off();
+						$(this).addClass('hidden').off();
 
 						// TODO: Save edited data to Database
 						$note
-							.find('.js-completed-action-note-text').removeClass('hide')
+							.find('.js-completed-action-note-text').removeClass('hidden')
 							.end()
-							.find('.js-completed-action-note-input').addClass('hide');
+							.find('.js-completed-action-note-input').addClass('hidden');
 
 						$time
-							.find('.js-completed-action-time-text').removeClass('hide')
+							.find('.js-completed-action-time-text').removeClass('hidden')
 							.end()
-							.find('.js-completed-action-time-input').addClass('hide');
+							.find('.js-completed-action-time-input').addClass('hidden');
 					});
 			});
 
@@ -141,10 +141,10 @@ define([], function() {
 					$actionBox = $target.parents('.js-container-actions')
 					$note = $actionBox.find('.js-action-note');
 
-				  if ( $note.hasClass('hide') ) {
-					$note.removeClass('hide');
+				  if ( $note.hasClass('hidden') ) {
+					$note.removeClass('hidden');
 				  } else {
-					$note.addClass('hide');
+					$note.addClass('hidden');
 				  }
 			});
 		});

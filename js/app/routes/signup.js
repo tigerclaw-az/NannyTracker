@@ -6,7 +6,7 @@ define([], function() {
 			$('#main').append($(tpl.apply()));
 
 			$('#close').on('click', function(){
-				$('#container-login-error').addClass('hide');
+				$('#container-login-error').addClass('hidden');
 			})
 
 			$('#signup').on('submit', function(e) {
@@ -46,7 +46,7 @@ define([], function() {
 				}).fail(function(jqXHR, status, error) {
 					var response = JSON.parse(jqXHR.responseText);
 						
-					$('#container-signup-error').removeClass('hide');
+					$('#container-signup-error').removeClass('hidden');
 					$('#signup-error').text(response.statusText).show();
 				})
 				.always(function(response) {
