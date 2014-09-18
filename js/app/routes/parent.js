@@ -2,7 +2,10 @@ define([], function() {
 	Path.map("#!/parent").to(function(){
 	}).enter(function() {
 		require(['tpl!template/parent.html'], function(tpl) {
-
+			if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
+				window.location.hash = '#!/login';
+			}
+			
 			var isParent = JSON.parse(sessionStorage.getItem("isParent"));
 			if (!isParent) {
 				window.location.hash = '#!/nanny';

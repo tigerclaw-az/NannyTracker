@@ -3,9 +3,12 @@ define([], function() {
 	}).enter(function() {
 		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
 
+			if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
+				window.location.hash = '#!/login';
+			}
+
 			// FIXME: Should probably check if user is a Nanny before redirecting
-			// var isNanny = JSON.parse(sessionStorage.getItem("isNanny"));
-			var isNanny = true;
+			var isNanny = !JSON.parse(sessionStorage.getItem("isParent"));
 			if (!isNanny) {
 				window.location.hash = '#!/parent';
 			}
@@ -18,50 +21,55 @@ define([], function() {
 						message: 'Uh-oh',
 						time: moment().format('lll')
 					}]),
-				childrenDfd = $.ajax({
-					url: 'api/index.php/parents/' + sessionStorage.getItem("assocParentId") + '/children',//should be the parent that owns this nanny's id
-					type: 'GET',
-				});
+					childrenDfd = $.ajax({
+						url: 'api/index.php/parents/' + sessionStorage.getItem("assocParentId") + '/children',//should be the parent that owns this nanny's id
+						type: 'GET',
+					});
 
 			// Wait for all AJAX calls to complete
 			$.when(notesDfd, messagesDfd, childrenDfd)
-				.done(function(notes, messages, children) {
-					var tabs = [];
+				.done(function(notes, messages, childrenResult) {
+					var children = childrenResult[0].data[0],
+						tabs = [];
+
+						console.log(children);
 
 					children.forEach(function(obj) {
 						tabs.push({
-							'isActive?': true,
 							name: obj.name
 						});
 					});
+
 					$('#main').append($(tplNanny.apply({
 						generalNotes: notes,
 						messages: messages,
 						childrenTabs: tabs,
 						children: children
 					})));
+
+					$('.js-children-tabs li:first-child a').click();
 				}).fail(function() {
 
 				})
 				.always(function() {
 
-				});
+				});			
 
 			$('#button-logout').on('click', function(e) {
+				var i = 0,
+					key;
+
 				sessionStorage.clear();
-				for(var i = 0; i <= sessionStorage.length; i++) {
-				    var key = sessionStorage.key(i);
+
+				for (i = 0; i <= sessionStorage.length; i++) {
+				    key = sessionStorage.key(i);
 			   		sessionStorage.removeItem(key);
 				}
 
-				var xhr;
-
-				xhr = $.ajax({
+				$.ajax({
 					url: 'api/index.php/logout',
 					type: 'GET',
-				});
-
-				xhr
+				})
 				.done(function(data) {
 					window.location.hash = '#!/home';
 				}).fail(function() {

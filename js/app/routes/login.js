@@ -46,16 +46,18 @@ define([], function() {
 					.done(function(response) {
 						var user = response.data[0];
 
-						if (user.parentId) {
+						if (user.isParent) {
 							window.location.hash = '#!/parent';
-							console.log(user.id);
+							console.log(user.id);							
 							sessionStorage.setItem("parentId", user.id);
 							sessionStorage.setItem("isParent", true);
 						} else {
 							window.location.hash = '#!/nanny';
-							sessionStorage.setItem("assocParentId", user.assocParentId);
+							sessionStorage.setItem("parentId", user.parentId);
 							sessionStorage.setItem("isParent", false);
 						}
+
+						sessionStorage.setItem("isLoggedIn", true);
 					}).fail(function(jqXHR, status, error) {
 						var response = JSON.parse(jqXHR.responseText);
 						

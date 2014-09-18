@@ -1,41 +1,62 @@
 [
 	{
 		"id": 1,
-		"assocParentId": 2,
+		"parentId": 1,
 		"name": "child 1",
-		"dob": "some date",
+		"dateOfBirth": "20140120",
 		"gender": "m",
-		"tasks": [
-			{"name": "feed"},
-			{"name": "bath"},
-			{"name": "change"},
-			{"name": "nap"}
-		]
+		"actions": [
+			{"action": "feed"},
+			{"action": "bath"},
+			{"action": "change"},
+			{"action": "nap"}
+		],
+		"notes": "N/A",
+		"isCare": true
 	},
 	{
 		"id": 2,
-		"assocParentId": 1,
+		"parentId": 1,
 		"name": "child 2",
-		"dob": "some date",
+		"dateOfBirth": "20140513",
 		"gender": "f",
-		"tasks": [
-			{"name": "feed"},
-			{"name": "bath"},
-			{"name": "change"},
-			{"name": "nap"}
-		]
+		"actions": [
+			{"action": "feed"},
+			{"action": "bath"},
+			{"action": "change"},
+			{"action": "nap"}
+		],
+		"notes": "N/A",
+		"isCare": true
 	},
 	{
 		"id": 3,
-		"assocParentId": 2,
+		"parentId": 1,
 		"name": "child 3",
-		"dob": "some date",
+		"dateOfBirth": "20140614",
 		"gender": "m",
-		"tasks": [
-			{"name": "feed"},
-			{"name": "bath"},
-			{"name": "change"},
-			{"name": "nap"}
-		]
+		"actions": [
+			{"action": "feed"},
+			{"action": "bath"},
+			{"action": "change"},
+			{"action": "nap"}
+		],
+		"notes": "N/A",
+		"isCare": false
+	},
+	{
+		"id": 4,
+		"parentId": 2,
+		"name": "child 1",
+		"dateOfBirth": "20140614",
+		"gender": "m",
+		"actions": [
+			{"action": "feed"},
+			{"action": "bath"},
+			{"action": "change"},
+			{"action": "nap"}
+		],
+		"notes": "N/A",
+		"isCare": true
 	}
 ]
