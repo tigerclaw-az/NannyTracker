@@ -20,7 +20,10 @@
 	-moz-box-shadow:    2px 4px 19px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         2px 4px 19px 0px rgba(50, 50, 50, 0.75);
 }
-
+.login-btn {
+	margin-top:20px;
+	height:42px;
+}
 .login-logo {
 	margin-bottom: 45px;
 }
