@@ -3,8 +3,7 @@
 require_once APP_LIB_PATH . '/AppResponse.php';
 
 $app->group('/parents', function() use ($app, $nannyDB) {
-	$app->group('/:id', function($id) use ($app) {
-		$app->get('', function($id) use ($app) {
+		$app->get('/:id', function($id) use ($app) {
 			
 			$result = null;
 
@@ -34,7 +33,7 @@ $app->group('/parents', function() use ($app, $nannyDB) {
 			}
 		});
 
-		$app->get('/children', function($id) use ($app) {
+		$app->get('/:id/children', function($id) use ($app) {
 
 			$file     = file_get_contents(APP_PATH . '/db/children.json');
 			$children = json_decode($file, true);
@@ -46,7 +45,7 @@ $app->group('/parents', function() use ($app, $nannyDB) {
 				$children = json_decode($file, true);
 
 				foreach ($children as $child) {
-					if ($child['assocParentId'] === intval($id)) {
+					if ($child['parentId'] === (int) $id && $child['isCare']) {
 						$child = (object) $child;
 						array_push($result, $child);
 						continue;
@@ -67,5 +66,4 @@ $app->group('/parents', function() use ($app, $nannyDB) {
 				ReportError($e, 500);
 			}
 		});
-	});	
 });
