@@ -1,12 +1,4 @@
 /*nanny styles*/
-.content{
-	background-color: #fff;
-	padding: 1px 20px 0 20px;
-}
-.content h4{
-	color: #8dc63f;
-	font-weight: bold;
-}
 .info{
     min-height: 20px;
     max-height: 150px;
