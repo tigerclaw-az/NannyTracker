@@ -65,16 +65,16 @@
 		<div class="col-lg-12">
 			<div class="children">
 				<!-- Nav tabs -->
-				<ul class="nav nav-tabs" id="myTab">
+				<ul class="nav nav-tabs js-children-tabs" id="myTab">
 					{{#childrenTabs}}
-				    	<li {{#isActive?}}class="active"{{/isActive?}}><a href="#{{name}}" data-toggle="tab">{{name}}</a></li>				    
+				    	<li><a href="#{{name}}" data-toggle="tab">{{name}}</a></li>			    
 					{{/childrenTabs}}
 				</ul>
 
 				<!-- Tab panes -->
 				<div class="tab-content gradient-green">
 					{{#children}}
-				    <div class="tab-pane fade in {{#isActive?}}active{{/isActive?}}" id="{{name}}">
+				    <div class="tab-pane fade in" id="{{name}}">
 				    	<div class="row">
 					    	<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					    		{{#actions}}
