@@ -25,3 +25,7 @@ label {
 .form-group #gender {
 	width: 100%
 }
+select {
+	height:34px;
+	padding:20px;
+}
