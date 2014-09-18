@@ -2,13 +2,17 @@
  	min-height: 230px;
 	max-width: 540px;
 	resize: none;
-	margin-bottom:40px;
+	margin-bottom:20px;
 }
-.phone-btn {
-	height:34px;
+.form-control.full-width {
+	width:100%;
 }
 .contact-header {
 	margin-top:50px !important;
+}
+.contact-submit-btn {
+	margin-bottom:40px;
+	height:42px;
 }
 @media only screen and (min-width : 320px) {
 	.email-message{
