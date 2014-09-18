@@ -18,3 +18,10 @@ label {
 .form-control {
 	margin-bottom: 10px;
 }
+
+.form-group #state {
+	width: 100%
+}
+.form-group #gender {
+	width: 100%
+}

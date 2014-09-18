@@ -8,82 +8,70 @@
 	    <strong>Error!</strong> <span id="signup-error"></span>
 	</div>
 
-	<div class="row-basics">
-		<div class="col-xs-12">
-			<label for"acct-basics">Account Basics</label>
-			<div class="thumbnail">
-				<form id="signup" role="form">
-				  <div class="row form-group">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					  <label for="email" class="sr-only">Email Address:</label>
-					  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					  <label for="password" class="sr-only">Password:</label>
-					  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-					</div>
-				  </div>
-			</div>
+	
+	<form id="signup" role="form">
+	  <div class="row form-group">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		  <label for="email" class="sr-only">Email Address:</label>
+		  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		  <label for="password" class="sr-only">Password:</label>
+		  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+		</div>
+	  </div>
+
+	<div class="row form-group">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		  <label for="first-name" class="sr-only">First Name:</label>
+		  <input type="text" class="form-control" id="first-name" name="firstName" placeholder="First Name">
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		  <label for="last-name" class="sr-only">Last Name:</label>
+		  <input type="text" class="form-control" id="last-name" name="lastName" placeholder="Last Name">
+		</div>
+		</div>
+
+		<div class="row form-group">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		  <label for="address" class="sr-only">Address:</label>
+		  <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+		  <label for="city" class="sr-only">City:</label>
+		  <input type="text" class="form-control" id="city" name="city" placeholder="City / Town">
+		</div>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+		  <label for="state" class="sr-only">State:</label>
+		  <select class="form-group" id="state" name="state">
+			<option>State</option>
+			<option>AZ</option>
+			<option>TX</option>
+			<option>CA</option>
+			<option>SD</option>
+		  </select>
 		</div>
 	</div>
 
-	<div class="row-information">
-		<div class="col-xs-12">
-			<label for="information">Information</label>
-			<div class="thumbnail">
-			  <div class="row form-group">
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				  <label for="first-name" class="sr-only">First Name:</label>
-				  <input type="text" class="form-control" id="first-name" name="firstName" placeholder="First Name">
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				  <label for="last-name" class="sr-only">Last Name:</label>
-				  <input type="text" class="form-control" id="last-name" name="lastName" placeholder="Last Name">
-				</div>
-			  </div>
-
-			  <div class="row form-group">
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				  <label for="address" class="sr-only">Address:</label>
-				  <input type="text" class="form-control" id="address" name="address" placeholder="Address">
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				  <label for="city" class="sr-only">City:</label>
-				  <input type="text" class="form-control" id="city" name="city" placeholder="City / Town">
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-				  <label for="state" class="sr-only">State:</label>
-				  <select class="form-group" id="state" name="state">
-					<option>State</option>
-					<option>AZ</option>
-					<option>TX</option>
-					<option>CA</option>
-					<option>SD</option>
-				  </select>
-				</div>
-			  </div>
-
-			  <div class="row form-group">
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				  <label for="phone" class="sr-only">Phone #:</label>
-				  <input type="text" class="form-control" id="phone" name="phone" placeholder="000-000-0000">
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-				  <label for="dob" class="sr-only">Date of Birth:</label>
-				  <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-				  <label for="gender" class="sr-only">Select Gender</label>
-				  <select class="form-group" id="gender" name="gender">
-					<option value="">Gender</option>
-					<option value="male">Male</option>
-					<option value="female">Female</option>
-				  </select>
-				</div>
-			  </div>
-			</div>
-		</div>
+	<div class="row form-group">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+	  <label for="phone" class="sr-only">Phone #:</label>
+	  <input type="text" class="form-control" id="phone" name="phone" placeholder="000-000-0000">
 	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	  <label for="dob" class="sr-only">Date of Birth:</label>
+	  <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth">
+	</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+	  <label for="gender" class="sr-only">Select Gender</label>
+	  <select class="form-group" id="gender" name="gender">
+		<option value="">Gender</option>
+		<option value="male">Male</option>
+		<option value="female">Female</option>
+	  </select>
+	</div>
+	</div>
+	
 
 	  <div class="row">
 		<div class="col-lg-6 col-md-4 col-sm-2 col-xs-12">
