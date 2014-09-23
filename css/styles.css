@@ -70,6 +70,7 @@ header .green-bar{
 .main-content{
 	background-color: white;
 	overflow: hidden;
+	min-height: 500px;
 }
 /*footer styles */
 footer{
