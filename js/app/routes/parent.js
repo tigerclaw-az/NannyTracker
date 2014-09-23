@@ -1,15 +1,21 @@
-define([], function() {
+define(['jquery', 'jquery.spin'], function($) {
 	Path.map("#!/parent").to(function() {
+		var isParent;
+
+		$('#main').spin('xlarge');
+
 		if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
 			window.location.hash = '#!/login';
-		}		
+		}
+
+		isParent = JSON.parse(sessionStorage.getItem("isParent"));
+		if (!isParent) {
+			window.location.hash = '#!/nanny';
+		}
 	}).enter(function() {
-		require(['tpl!template/parent.html'], function(tpl) {		
-			var isParent = JSON.parse(sessionStorage.getItem("isParent"));
-			if (!isParent) {
-				window.location.hash = '#!/nanny';
-			}
-			
+		require([
+			'moment', 'tpl!template/parent.html'
+		], function(moment, tpl) {					
 			$.ajax({
 				url: 'api/index.php/parents/' + sessionStorage.getItem("parentId") + '/children',//should be the parent that owns this nanny's id
 				type: 'GET',
@@ -34,11 +40,12 @@ define([], function() {
 
 			})
 			.always(function() {
-				console.debug(arguments);
+				$('#main').spin(false);
 			});			
 		});
 	}).exit(function() {
 		// Exit from route
+		$('#main').spin(false);
 		$('#main').off().empty();
 	});
 });

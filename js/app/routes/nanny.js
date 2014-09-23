@@ -1,5 +1,7 @@
-define([], function() {
+define(['jquery', 'jquery.spin'], function($) {
 	Path.map("#!/nanny").to(function() {
+		$('#main').spin('xlarge');
+
 		if ( !JSON.parse(sessionStorage.getItem("isLoggedIn")) ) {
 			window.location.hash = '#!/login';
 		}
@@ -11,8 +13,10 @@ define([], function() {
 		}
 	}).enter(function() {
 		require([
-			'tpl!template/nanny.html', 'tpl!template/completed-task.html'
-		], function(tplNanny, tplCT) {
+			'jquery', 'moment',
+			'tpl!template/nanny.html', 'tpl!template/completed-task.html',
+			'bootstrap', 'bs-datetimepicker'
+		], function($, moment, tplNanny, tplCT) {
 			var $mainContainer = $('#main');			
 
 			var notesDfd = $.Deferred().resolve('This is a test'),
@@ -47,13 +51,13 @@ define([], function() {
 						children: children
 					})));
 
-					// $('.js-children-tabs li:first-child a').click();
-					$('.children a[data-toggle="tab"]:first').tab('show');
+					// $('.js-children-tabs a[data-toggle="tab"]:first').click();
+					$('.js-children-tabs a[data-toggle="tab"]:first').tab('show');
 				}).fail(function() {
 
 				})
 				.always(function() {
-
+					$mainContainer.spin(false);
 				});						
 
 			$mainContainer.delegate('.js-mark-complete', 'click', function(e) {
@@ -124,6 +128,7 @@ define([], function() {
 		});
 	}).exit(function() {
 		// Exit from route
+		$('#main').spin(false);
 		$('#main').off().empty();
 	});
 });
