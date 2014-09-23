@@ -10,7 +10,9 @@ define([], function() {
 			window.location.hash = '#!/parent';
 		}
 	}).enter(function() {
-		require(['tpl!template/nanny.html', 'tpl!template/completed-task.html'], function(tplNanny, tplCT) {
+		require([
+			'tpl!template/nanny.html', 'tpl!template/completed-task.html'
+		], function(tplNanny, tplCT) {
 			var $mainContainer = $('#main');			
 
 			var notesDfd = $.Deferred().resolve('This is a test'),
@@ -52,34 +54,7 @@ define([], function() {
 				})
 				.always(function() {
 
-				});			
-
-			$('#main').delegate('#button-logout', 'click', function(e) {
-				var i = 0,
-					key;
-
-				sessionStorage.clear();
-
-				for (i = 0; i <= sessionStorage.length; i++) {
-				    key = sessionStorage.key(i);
-			   		sessionStorage.removeItem(key);
-				}
-
-				$.ajax({
-					url: 'api/index.php/logout',
-					type: 'GET',
-				})
-				.done(function(data) {
-					window.location.hash = '#!/home';
-				}).fail(function() {
-
-				})
-				.always(function() {
-					console.debug(arguments);
-				});
-
-				e.preventDefault();
-			});
+				});						
 
 			$mainContainer.delegate('.js-mark-complete', 'click', function(e) {
 				var $target = $(e.target),

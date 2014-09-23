@@ -35,37 +35,10 @@ define([], function() {
 			})
 			.always(function() {
 				console.debug(arguments);
-			});
-
-			$('#main').delegate('#button-logout', 'click', function(e) {
-				var i = 0,
-					key;
-
-				sessionStorage.clear();
-
-				for (i = 0; i <= sessionStorage.length; i++) {
-				    key = sessionStorage.key(i);
-			   		sessionStorage.removeItem(key);
-				}
-
-				$.ajax({
-					url: 'api/index.php/logout',
-					type: 'GET',
-				}).done(function(data) {
-					window.location.hash = '#!/home';
-				}).fail(function() {
-
-				})
-				.always(function() {
-
-				});
-
-				e.preventDefault();
-			});
+			});			
 		});
 	}).exit(function() {
 		// Exit from route
 		$('#main').off().empty();
-
 	});
 });
