@@ -1,7 +1,7 @@
 <div class="container-fluid">
-	<div class="row-fluid">
+	<div class="row-fluid faq-header">
 	    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 faq-header-img">
-			<img src="img/faq-tag.png" alt="Faq" width="100%" height="auto" />
+			<img class="img-responsive" src="img/faq-tag.png">
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 faq-header-text">
 			<p>Members are welcome to ask any question that they would like.
@@ -14,35 +14,45 @@
 	<div class="row-fluid">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 faq-content">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 faq-sections">
-				<div class="col-lg-6">
+				<div class="col-sm-6">
 					<p>Topics</p>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-sm-3">
 					<p>Stats</p>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-sm-3">
 					<p>Latest Post</p>
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 faq-body">
 				{{#faqRow}}
 				<div class="row">				
-					<div class="col-lg-6">
-						<div class="topic-holder">
-						 <a class="pull-left" href="">
-						  	<i class="fa fa-folder fa-6x pull-left"></i>
-						  </a>
-						  <div class="media-body">
-						    <h4 class="media-heading blue-text">{{subject}}</h4>
-						    {{description}}</p>
-						  </div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+							<div class="topic-holder">
+							    <a class="pull-left" href="">
+							  		<i class="fa fa-folder fa-6x pull-left"></i>
+							    </a>
+							</div>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+							<div class="media-body">
+							    <h4 class="media-heading blue-text">{{subject}}</h4>
+							    <p>{{description}}</p>
+							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 faq-col">
-						<p class="forum-p blue-text">{{numTopics}} Topics</p>
-						<p class="forum-p">{{numReplies}} Replies</p>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-5 faq-col text-left media-body ">
+						<span class="hidden-xs">
+							<p class="forum-p blue-text">{{numTopics}} Topics</p>
+							<p class="forum-p">{{numReplies}} Replies</p>
+						</span>
+						<span class="visible-xs">
+							<p class="forum-p blue-text">{{numTopics}} T</p>
+							<p class="forum-p">{{numReplies}} R</p>
+						</span>
 					</div>
-					<div class="col-lg-3">
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-7 text-left media-body">
 						<p class="forum-p">{{recentPost}}</p>
 					</div>
 				</div>

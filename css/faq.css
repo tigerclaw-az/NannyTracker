@@ -1,11 +1,11 @@
-.faq-col{
-	background-color:#e2e2e3;
-	padding-top:35px;
-	text-align:center;
+.faq-header{
+	height: 250px
 }
 .faq-header-text{
-	padding-top:65px;
-	padding-bottom:100px;
+	padding: 20px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 .faq-header-img{
 	margin-top:25px;
@@ -32,4 +32,10 @@
 .topic-holder a{
 	padding-left: 15px;
 	color: #8dc63f;
+}
+
+@media(max-width: 768px){
+	.faq-col{
+		padding-left: 40px !important;
+	}
 }

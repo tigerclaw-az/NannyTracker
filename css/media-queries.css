@@ -1,8 +1,5 @@
-@media screen and (max-width: 980px) {	
+@media (max-width: 980px) {	
 	.featured-well {
 		border: none;
-	}
-	.container-button-menu i{
-		margin-top: 55px;
 	}
 }
