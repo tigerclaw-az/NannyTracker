@@ -38,4 +38,12 @@
 	max-height: 660px;
 	overflow-y: auto;
 }
+
+.top-tabs {
+    border: 1px solid #8dc63f;    
+    border-radius: 0 5px 5px 5px;
+    padding: 15px;
+    min-height: 190px;
+ 	overflow-y: auto;
+}
 /*end nanny styles*/
