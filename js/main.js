@@ -41,6 +41,10 @@ require([
 
 	Path.listen();
 
+	$(document).delegate('.js-button-menu', 'click', function(e) {
+		$('.js-menu').slideToggle()
+	});
+
 	$(document).delegate('#button-logout', 'click', function(e) {
 		var i = 0,
 			key;

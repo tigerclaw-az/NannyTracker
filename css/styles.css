@@ -35,8 +35,11 @@ header{
 	background: linear-gradient(to bottom,  #99ca3c 0%,#b9d76a 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99ca3c', endColorstr='#b9d76a',GradientType=0 );
 }
-.logo-cont{
-	position: relative;
+.cont-logo{
+	height: 83px;
+}
+.container-button-menu i{
+	color: #fff;
 }
 header img{
 	left: 25px;
@@ -49,7 +52,7 @@ nav li a{
 	padding-top: 45px !important;
 	padding-bottom: 10px !important;
 	color: #fff;
-	font-size: 23px
+	font-size: 23px;
 }
 nav li a:hover {
 	background: #8bc53f !important;
@@ -61,6 +64,21 @@ nav .seperator{
 	height: 75px;
 	background-color: #8dc63f;
 	position: absolute;
+}
+.menu {
+	display: none;
+	margin: 0 !important;
+}
+.menu li{
+	border-radius: 0px !important;
+	color: #8dc63f !important;
+	cursor: pointer;
+}
+.menu a{
+	color: #8dc63f !important;
+}
+.menu li:hover{
+	background-color: #efefef;
 }
 header .green-bar{
 	background-color: #8dc63f;
@@ -97,6 +115,9 @@ footer p a:hover{
 /*end footer styles */
 
 /* Global styles */
+.pointer{
+	cursor: pointer;
+}
 .content{
 	background-color: #fff;
 	padding: 40px 20px 0 20px;

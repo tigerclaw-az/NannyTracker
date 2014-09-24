@@ -2,4 +2,7 @@
 	.featured-well {
 		border: none;
 	}
+	.container-button-menu i{
+		margin-top: 55px;
+	}
 }
