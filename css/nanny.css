@@ -6,13 +6,14 @@
 	padding: 19px;
 	margin-bottom: 20px;
 }
-.dotted-line{
-	height: 15px;
-	border-bottom-style: dotted;
-	border-bottom-color: #8dc63f;
-}
 .children{
 	padding-top: 20px;
+}
+.children h2{
+	margin-top: 10px;
+}
+.children i{
+	margin-top: 10%;
 }
 .container-completed{
 	max-height: 360px;
@@ -24,6 +25,9 @@
 .children-actions {
 	max-height: 660px;
 	overflow-y: auto;
+}
+.notes-child{
+	min-height: 85px;
 }
 .top-tabs {
     border: 1px solid #8dc63f;    

@@ -21,16 +21,16 @@ define(['jquery', 'jquery.spin'], function($) {
 
 			var notesDfd = $.Deferred().resolve('This is a test'),
 				messagesDfd = $.Deferred().resolve([{
-						message: 'Hey!',
-						time: moment().subtract(3, 'days').format('lll')
-					}, {
-						message: 'Uh-oh',
-						time: moment().format('lll')
-					}]),
-					childrenDfd = $.ajax({
-						url: 'api/index.php/parents/' + sessionStorage.getItem("parentId") + '/children',//should be the parent that owns this nanny's id
-						type: 'GET',
-					});
+					message: 'Hey!',
+					time: moment().subtract(3, 'days').format('lll')
+				}, {
+					message: 'Uh-oh',
+					time: moment().format('lll')
+				}]),
+				childrenDfd = $.ajax({
+					url: 'api/index.php/parents/' + sessionStorage.getItem("parentId") + '/children',//should be the parent that owns this nanny's id
+					type: 'GET',
+				});
 
 			// Wait for all AJAX calls to complete
 			$.when(notesDfd, messagesDfd, childrenDfd)
@@ -75,8 +75,6 @@ define(['jquery', 'jquery.spin'], function($) {
 					'isNote?': $note.val().length === 0 ? false : true,
 					note: $note.val()
 				}));
-
-				$note.addClass('hidden');
 			});
 
 			$mainContainer.delegate('.js-edit-completed-action', 'click', function(e) {
@@ -114,19 +112,7 @@ define(['jquery', 'jquery.spin'], function($) {
 							.end()
 							.find('.js-completed-action-time-input').addClass('hidden');
 					});
-			});
-
-			$mainContainer.delegate('.js-add-notes', 'click', function(e) {
-				var $target = $(e.target)
-					$actionBox = $target.parents('.js-container-actions')
-					$note = $actionBox.find('.js-action-note');
-
-				  if ( $note.hasClass('hidden') ) {
-					$note.removeClass('hidden');
-				  } else {
-					$note.addClass('hidden');
-				  }
-			});
+			});			
 		});
 	}).exit(function() {
 		// Exit from route

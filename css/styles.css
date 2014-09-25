@@ -208,9 +208,9 @@ button {
 	border-bottom-left-radius: 4px;
 }
 .tab-content {
-    border: 1px solid #8dc63f;    
-    border-radius: 0 5px 5px 5px;
-    padding: 15px;
+	border: 1px solid #8dc63f;    
+	border-radius: 0 5px 5px 5px;
+	padding: 15px;
 }
 .tab-content i {
 	color: #8dc63f;
@@ -252,18 +252,8 @@ button {
 .border-left {
 	border-left: 1px solid #e3e3e3;
 }
-@media (max-width:768px){
-	.cont-logo img{
-		width: 230px;
-		margin-top: 24px;
-	}
-	.login-logout{
-		font-size: 16px;
-	}
-	.list-group a{
-		font-size: 16px;
-	}
-	.marketing p{
-		font-size: 15px;
-	}
+.dotted-line{
+	height: 15px;
+	border-bottom-style: dotted;
+	border-bottom-color: #8dc63f;
 }

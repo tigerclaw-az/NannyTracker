@@ -3,3 +3,34 @@
 		border: none;
 	}
 }
+@media (max-width:768px){
+	.cont-logo img{
+		width: 230px;
+		margin-top: 24px;
+	}
+	.login-logout{
+		font-size: 16px;
+	}
+	.list-group a{
+		font-size: 16px;
+	}
+	.marketing p{
+		font-size: 15px;
+	}
+	.container-copyright p {
+		font-size: 12px;
+		text-align: center !important;
+	}
+	.container-owners p {
+		font-size: 12px;
+		text-align: center;
+	}
+}
+@media (min-width: 768px) {
+	.container-copyright p {
+		text-align: right !important;
+	}
+	.container-owners p {
+		text-align: left;
+	}
+}
