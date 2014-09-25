@@ -208,9 +208,9 @@ button {
 	border-bottom-left-radius: 4px;
 }
 .tab-content {
-    border: 1px solid #8dc63f;    
-    border-radius: 0 5px 5px 5px;
-    padding: 15px;
+	border: 1px solid #8dc63f;    
+	border-radius: 0 5px 5px 5px;
+	padding: 15px;
 }
 .tab-content i {
 	color: #8dc63f;
