@@ -1,31 +1,3 @@
-.signup-header {
-	margin-top: 40px;
-}
-
-p {
+.container-signup p {
 	margin-bottom: 30px;
-}
-
-.thumbnail {
-	padding: 12px;
-	background-color: #F5F5F5;
-}
-
-label {
-	color: #8F8F8F;
-}
-
-.form-control {
-	margin-bottom: 10px;
-}
-
-.form-group #state {
-	width: 100%
-}
-.form-group #gender {
-	width: 100%
-}
-select {
-	height:34px;
-	padding:20px;
 }
