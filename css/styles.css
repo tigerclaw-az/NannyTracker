@@ -249,3 +249,9 @@ button {
 .nav-tabs li a:hover{
 	opacity: 1 !important;
 }
+@media (max-width:768px){
+	.cont-logo img{
+		width: 230px;
+		margin-top: 24px;
+	}
+}
