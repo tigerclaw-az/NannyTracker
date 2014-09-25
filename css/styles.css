@@ -2,6 +2,10 @@ body{
 	background: #333 url(../img/background.gif) repeat;
 	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
 }
+hr {
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
 .fa-6x{
 	font-size: 6em;
 }
