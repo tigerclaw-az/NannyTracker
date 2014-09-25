@@ -3,3 +3,18 @@
 		border: none;
 	}
 }
+@media (max-width:768px){
+	.cont-logo img{
+		width: 230px;
+		margin-top: 24px;
+	}
+	.login-logout{
+		font-size: 16px;
+	}
+	.list-group a{
+		font-size: 16px;
+	}
+	.marketing p{
+		font-size: 15px;
+	}
+}
