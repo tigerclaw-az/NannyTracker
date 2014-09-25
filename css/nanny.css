@@ -15,9 +15,6 @@
 	padding-top: 20px;
 }
 
-.icon-cont{
-	border-right: 1px solid #e3e3e3;
-}
 .container-completed{
 	min-height: 400px;
 	max-height: 660px;
@@ -27,12 +24,8 @@
 .relative{
 	position: relative;
 }
-.right-hr{
-	position: absolute;
-	border-right: 1px solid #e3e3e3;
-	height: 166px;
-	top: -20px;
-	left: 100px;
+.border-left {
+	border-left: 1px solid #e3e3e3;
 }
 .children-actions {
 	max-height: 660px;
