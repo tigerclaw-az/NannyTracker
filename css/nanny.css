@@ -14,24 +14,17 @@
 .children{
 	padding-top: 20px;
 }
-
 .container-completed{
-	min-height: 400px;
-	max-height: 660px;
+	max-height: 360px;
 	overflow-y: auto;
 }
-
 .relative{
 	position: relative;
-}
-.border-left {
-	border-left: 1px solid #e3e3e3;
 }
 .children-actions {
 	max-height: 660px;
 	overflow-y: auto;
 }
-
 .top-tabs {
     border: 1px solid #8dc63f;    
     border-radius: 0 5px 5px 5px;

@@ -62,12 +62,14 @@ define(['jquery', 'jquery.spin'], function($) {
 
 			$mainContainer.delegate('.js-mark-complete', 'click', function(e) {
 				var $target = $(e.target),
-					$containerCompleted = $($('#children-tabs .active a').attr('href')).find('.container-completed'),
+					$containerCompleted = $('.js-container-completed-actions'),
+					childName = $('.js-children-tabs li.active a').text(),
 					$actionBox = $target.parents('.js-container-actions'),
 					action = $actionBox.find('.js-action-name').text(),
 					$note = $actionBox.find('.js-action-note');
 
 				$containerCompleted.append(tplCT.apply({
+					child: childName,
 					action: action,
 					time: moment().format('lll'),
 					'isNote?': $note.val().length === 0 ? false : true,

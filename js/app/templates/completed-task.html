@@ -1,27 +1,42 @@
 <div class="container-completed-action js-container-completed-action">
-	<div class="row">
-		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-			{{action}}
-		</div>	
-		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 js-edit-completed-action">
+	<div class="row-fluid">
+		<div class="col-xs-1 js-edit-completed-action">
 			<i class="fa fa-pencil-square-o fa-2x" ></i>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 js-container-completed-action-time">
-			<p class="js-completed-action-time-text">{{time}}</p>
-			<div class="hidden input-group date js-completed-action-time-input">
-				<input class="form-control" type="text" value="{{time}}">
-				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		<div class="col-xs-11 border-left">
+			<div class="row-fluid">
+				<div class="col-xs-12">
+					{{child}}
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="col-xs-12">
+					{{action}}
+				</div>			
+			</div>
+			<div class="row-fluid">
+				<div class="col-xs-12">
+					<div class="js-container-completed-action-time">
+						<p class="js-completed-action-time-text">{{time}}</p>
+						<div class="hidden input-group date js-completed-action-time-input">
+							<input class="form-control" type="text" value="{{time}}">
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="col-xs-12">
+					<div class="js-container-completed-action-note">
+						{{#isNote?}}NOTE: <p class="js-completed-action-note-text">{{note}}</p><textarea class="hidden js-completed-action-note-input" value="{{note}}">{{note}}</textarea>{{/isNote?}}
+					</div>
+				</div>
+			</div>
+			<div class="row-fluid hidden js-edit-completed-action-done">
+				<div class="col-xs-12">
+					<button class="btn btn-primary">Done</button>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 js-container-completed-action-note">
-			{{#isNote?}}NOTE: <p class="js-completed-action-note-text">{{note}}</p><textarea class="hidden js-completed-action-note-input" value="{{note}}">{{note}}</textarea>{{/isNote?}}
-		</div>
-	</div>
-	<div class="row hidden js-edit-completed-action-done">
-		<button class="btn btn-primary">Done</button>
 	</div>
 </div>
