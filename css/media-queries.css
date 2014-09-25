@@ -17,4 +17,20 @@
 	.marketing p{
 		font-size: 15px;
 	}
+	.container-copyright p {
+		font-size: 12px;
+		text-align: center !important;
+	}
+	.container-owners p {
+		font-size: 12px;
+		text-align: center;
+	}
+}
+@media (min-width: 768px) {
+	.container-copyright p {
+		text-align: right !important;
+	}
+	.container-owners p {
+		text-align: left;
+	}
 }
