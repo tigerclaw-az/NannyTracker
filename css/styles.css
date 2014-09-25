@@ -261,3 +261,6 @@ button {
 	border-bottom-style: dotted;
 	border-bottom-color: #8dc63f;
 }
+.form-control-helper{
+	margin-bottom: 15px;
+}
