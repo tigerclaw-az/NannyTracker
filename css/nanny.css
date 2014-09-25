@@ -23,10 +23,6 @@
 .relative{
 	position: relative;
 }
-.children-actions {
-	max-height: 660px;
-	overflow-y: auto;
-}
 .notes-child{
 	min-height: 85px;
 }
