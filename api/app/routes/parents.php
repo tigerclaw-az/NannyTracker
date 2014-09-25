@@ -24,7 +24,7 @@ $app->group('/parents', function() use ($app, $nannyDB) {
 					$appResponse->data = [$result];
 					$appResponse->SetStatus(200);
 				} else {
-					ReportError(new \Exception('Invalid credentials, please try again'), 401);
+					ReportError(new \Exception('No parennt info'));
 				}		
 
 			    echo json_encode($appResponse);
@@ -58,7 +58,7 @@ $app->group('/parents', function() use ($app, $nannyDB) {
 					$appResponse->data = [$result];
 					$appResponse->SetStatus(200);
 				} else {
-					ReportError(new \Exception('Invalid credentials, please try again'), 401);
+					ReportError(new \Exception('No children for the given parent id.'));
 				}		
 
 			    echo json_encode($appResponse);
